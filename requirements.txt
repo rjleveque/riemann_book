@@ -4,3 +4,5 @@ matplotlib >= 2.0.0
 ipywidgets >= 6.0.0
 sympy
 scipy
+-e git+https://github.com/clawpack/clawpack.git@v5.4.0#egg=clawpack
+
