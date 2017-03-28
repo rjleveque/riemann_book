@@ -13,7 +13,7 @@ Parentheticals indicate concepts introduced for the first time.
 - [Prologue: background and motivation](https://github.com/clawpack/riemann_book/wiki/Introductory-notebook-outline)
 
 **Part I: Exact Riemann solutions**
-1. Advection?
+1. [Advection](https://github.com/clawpack/riemann_book/blob/master/Advection.ipynb)
 1. [Acoustics](https://github.com/clawpack/riemann_book/blob/master/Acoustics.ipynb) (eigenvalue analysis, characteristics, similarity solutions)
 2. [Traffic flow](https://github.com/clawpack/riemann_book/blob/master/Traffic_flow.ipynb) (shocks, rarefactions, conservation, jump conditions)
 3. Burgers' (weak solutions)
@@ -21,20 +21,24 @@ Parentheticals indicate concepts introduced for the first time.
 5. How to solve the Riemann problem exactly -- go in depth into SW solver, including Newton iteration to find root of piecewise function
 5. Shallow water with a tracer (contact waves)
 5. [Euler equations](https://github.com/clawpack/riemann_book/blob/master/Euler_equations.ipynb)
-7. [Euler with Tamman EOS](https://github.com/clawpack/riemann_book/blob/master/Euler_equations_TammannEOS.ipynb)
 
 **Part II: Approximate solvers**
 1. Motivation and approaches to approximate solvers (waves vs fluxes)
 1. Transonic rarefactions and entropy fixes
-2. Linearized solvers (Roe) (SW, Euler) (non-physical solutions)
-3. LLF and HLL and extensions (SW, Euler) (smearing of contacts)
+2. Linearized solvers (Roe) (non-physical solutions)
+3. LLF and HLL and extensions (smearing of contacts)
+4. Comparison of solvers for shallow water
+5. Comparison of solvers for Euler
+6. Comparison of full numerical solutions for Woodward-Colella blast wave problem
 
 **Part III: Riemann problems in heterogeneous media**
 1. Advection (conservative vs color)
 1. Acoustics (conservative vs non-conservative)
 2. [Variable speed-limit traffic](https://github.com/clawpack/riemann_book/blob/master/Traffic_variable_speed.ipynb)
 3. [Nonlinear elasticity](https://github.com/clawpack/riemann_book/blob/master/Nonlinear_elasticity.ipynb) (forward reference to nonconservative nonlinear problems)
-4. Shock tube with different diameters on left and right?
+4. Shock tube with different ratio of specific heats
+7. [Euler with Tamman EOS](https://github.com/clawpack/riemann_book/blob/master/Euler_equations_TammannEOS.ipynb)
+
 
 **Part IV: Source terms**
 1. Approaches: source at interface vs other approaches (not covered here), well-balancing? stiffness?
@@ -42,6 +46,7 @@ Parentheticals indicate concepts introduced for the first time.
 1. Shallow water with bathymetry
 2. Euler with gravity
 3. Reactive Euler?
+4. Discuss viscous source terms?
 
 **Part V: Non-classical problems**
 1. [Nonconvex fluxes](https://github.com/clawpack/riemann_book/blob/master/Nonconvex_Scalar_Osher_Solution.ipynb) (Buckley-Leverett, Osher solution)
