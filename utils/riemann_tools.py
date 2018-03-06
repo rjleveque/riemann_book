@@ -233,7 +233,7 @@ def plot_waves(states, s, riemann_eval, wave_types, t=0.1, ax=None,
                 corresponding to the time.
     """
 
-    num_eqn,num_states = states.shape
+    #num_eqn,num_states = states.shape
 
     if wave_types is None:
         wave_types = ['contact']*len(s)
