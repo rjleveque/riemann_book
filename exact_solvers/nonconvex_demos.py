@@ -9,7 +9,7 @@ if top_dir not in sys.path:
     sys.path.append(top_dir)
 from utils import riemann_tools
 
-figsize =(8,4)
+#figsize =(12,4)
 
 def plot_waves(f,q_left, q_right, xi_left, xi_right, n=1000, axes=None, t=0.2):
     qtilde = nonconvex.osher_solution(f, q_left, q_right, 1000)
@@ -72,9 +72,12 @@ def make_plot_function(f, q_left, q_right, xi_left, xi_right):
         plt.plot(xi_plot, q_plot, 'k', linewidth=2)
         plt.title('Solution q(x,t) at t = %4.2f' % t)
         plt.xlabel('x')
-
         plt.xlim(xi_left,xi_right)
         
+        ax = plt.subplot(1,3,2)
+        plot_waves(f,q_left,q_right,xi_left,xi_right,n=1000,axes=ax,t=t)
+        #ax.set_xlim(xi_left,xi_right)
+                
         # plot flux function and convex hull:
         plt.subplot(1,3,3)
         q_plot = np.linspace(q_left, q_right, 1000)
@@ -82,14 +85,10 @@ def make_plot_function(f, q_left, q_right, xi_left, xi_right):
         plt.plot(q_plot, f_plot, 'k--', label='f(q)')
         plt.plot(qxi, f(qxi),'k', label='Convex hull')
         plt.plot([q_left,q_right],[f(q_left),f(q_right)],'bo')
-        plt.title('Flux function')
+        plt.title('Flux function (dashed)\n Convex hull (solid)')
         plt.xlabel('q')
-        plt.legend()
+        #plt.legend()
 
-        ax = plt.subplot(1,3,2)
-        plot_waves(f,q_left,q_right,xi_left,xi_right,n=1000,axes=ax,t=t)
-        #ax.set_xlim(xi_left,xi_right)
-        
         if fig==0: plt.show()
         return None
     return plot_function
@@ -148,3 +147,62 @@ def plot_flux(f, q_left, q_right, plot_zero=True):
     plt.subplots_adjust(left=0.)
     plt.tight_layout()
 
+
+#===
+
+def make_plot_function_qsliders(f):
+    
+    def plot_function(t=0.2, q_left=1, q_right=0, fig=0):
+        """
+        Create plot at time t.
+        Nonzero fig is used only by jsanimate_widgets when
+        converting to html files.
+        """
+        if fig==0: 
+            #plt.figure(figsize=(14,6))
+            plt.figure()
+
+        xi_left = -3.
+        xi_right = 3.
+        xi, qxi, q_char, xi_char = \
+                    nonconvex.nonconvex_solutions(f, q_left, q_right, 
+                                                  xi_left, xi_right)
+        # plot solution q(x,t):
+        plt.subplot(1,3,1)
+        # from characteristic-based solution:
+        plt.plot(xi_char*t,q_char,'k--') 
+
+        # single-valued solution, extended full domain:
+        xi_plot = np.hstack((xi_left,xi*t,xi_right))
+        q_plot = np.hstack((q_left,qxi,q_right))
+        plt.plot(xi_plot, q_plot, 'k', linewidth=2)
+        plt.title('Solution q(x,t) at t = %4.2f' % t)
+        plt.xlabel('x')
+        plt.ylim(-4,4)
+
+        plt.xlim(xi_left,xi_right)
+        
+        ax = plt.subplot(1,3,2)
+        plot_waves(f,q_left,q_right,xi_left,xi_right,n=1000,axes=ax,t=t)
+        ax.set_xlim(-1.5,1.5)
+
+        # plot flux function and convex hull:
+        plt.subplot(1,3,3)
+        ql_plot = -4
+        qr_plot = 4
+        q_plot = np.linspace(ql_plot,qr_plot, 1000)
+        f_plot = f(q_plot)
+        plt.plot(q_plot, f_plot, 'k--', label='f(q)')
+        plt.plot(qxi, f(qxi),'k', label='Convex hull')
+        plt.plot([q_left,q_right],[f(q_left),f(q_right)],'bo')
+        plt.title('Flux function (dashed)\n Convex hull (solid)')
+        plt.xlabel('q')
+        plt.xlim(ql_plot,qr_plot)
+        plt.ylim(-0.8,1.2)
+        #plt.legend()
+
+
+        
+        if fig==0: plt.show()
+        return None
+    return plot_function
