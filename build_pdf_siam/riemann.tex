@@ -559,10 +559,12 @@ and publish with them.
 \section{What is a Riemann Problem?}\label{what-is-a-riemann-problem}}
 
 In 1860, Bernhard Riemann published a study titled ``On the propagation
+\index{Riemann, Bernhard}
 of plane waves of finite amplitude'' \cite{riemann1860fortpflanzung},
 the first mathematical analysis of the Euler equations of gas dynamics.
 In that work, among many contributions, is a study of what came to be
 known as the \textbf{Riemann problem}: a hyperbolic partial differential
+\index{Riemann problem ! definition}
 equation (PDE) with initial data consisting of two constant states
 separated by a discontinuity. The idea of discontinuous solutions to
 hyperbolic conservation laws was first suggested by Stokes
@@ -578,6 +580,7 @@ revolves, to a great extent, around the Riemann problem and its
 solution.
 
 For a hyperbolic system of \(m\) PDEs, each of the states in the Riemann
+\index{hyperbolic equations}
 solution is a vector with \(m\) components. We will generally use
 \(q(x,t)\in\mathbb{R}^m\) to denote the generic solution to a hyperbolic
 problem in on space dimension, and denote the Riemann initial data by
@@ -589,6 +592,7 @@ We will formally define what we mean by a hyperbolic system of PDEs
 shortly, but for now it suffices to know that these are the PDEs that
 naturally arise whenever we model wave propagation. The work of Riemann
 and Stokes was motivated by the Euler equations of compressible gas
+\index{Euler equations}
 dynamics; in this introduction we use examples involving the motion of
 water waves. Hyperbolic equations also arise in modeling waves in solids
 (e.g.~seismic waves), in traffic, and in many other applications.
@@ -629,6 +633,7 @@ problem}\label{an-example-the-dam-break-problem}}
 
 To get a feel for what a Riemann problem and its solution look like,
 consider a \emph{dam break} problem in which a dam initially separates
+\index{dam break problem}
 water with constant depth \(h_\ell\) to the left of the dam from water
 with depth \(h_r\) to the right of the dam. Suppose the water is
 initially stationary, with velocity 0 on both sides of the dam. This
@@ -656,6 +661,7 @@ varies only with \(x\) and \(t\), given by some function \(u(x,t)\), and
 the depth is given by \(h(x,t)\). In Chapter \ref{sec:07-Shallow_water}
 we will discuss the one-dimensional \textbf{shallow water equations}
 that can be used to model this idealized situation.
+\index{shallow water equations}
 
 The figure below shows the solution to the shallow water equations in
 the situation just described \emph{(as an animation in the live notebook
@@ -667,6 +673,7 @@ Think of the color as a dye that is simply carried along with the water
 as it flows. In Chapter \ref{sec:08-Shallow_tracer} we will see that we
 can in fact model this by adding another equation to the shallow water
 equations for the density of a tracer.
+\index{tracer}
 
     \begin{Verbatim}[fontsize=\small,commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}4}]:} \PY{n}{interact}\PY{p}{(}\PY{n}{make\PYZus{}demo\PYZus{}plot\PYZus{}function}\PY{p}{(}\PY{n}{h\PYZus{}l}\PY{o}{=}\PY{l+m+mf}{3.}\PY{p}{,} \PY{n}{h\PYZus{}r}\PY{o}{=}\PY{l+m+mf}{1.}\PY{p}{,} \PY{n}{u\PYZus{}l}\PY{o}{=}\PY{l+m+mf}{0.}\PY{p}{,} \PY{n}{u\PYZus{}r}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,}
@@ -703,9 +710,11 @@ animation}\label{things-to-note-about-this-animation}}
   velocity remain continuous functions of \(x\) in this region for all
   time. The depth and velocity vary through a \textbf{rarefaction wave}
   that moves upstream.
+  \index{rarefaction wave}
 \item
   The water downstream from the dam is stationary until a \textbf{shock
   wave} passes by, which instantaneously accelerates the fluid from
+  \index{shock wave}
   \(u_r=0\) to some constant velocity \(u_m >0\). At the same time the
   depth increases from \(h_r\) to \(h_m\). This \emph{middle state}
   depth and velocity is the same as the depth and velocity that the
@@ -731,6 +740,7 @@ well.
 
 In the context of water waves, this shock wave is often called a
 \textbf{hydraulic jump}. In a real dam break problem the solution would
+\index{hydraulic jump}
 not be discontinuous, but there might be turbulent bore that, from far
 enough away, looks like a discontinuity. The nonlinear shallow water
 equations can be used to model such flows in the sense that the jump in
@@ -743,6 +753,7 @@ length) and \(hu\) is the density of momentum (per unit length). For
 flow on a flat bottom these are conserved quantities, and the hyperbolic
 problem in this case is called a \textbf{hyperbolic conservation law}.
 For nonlinear hyperbolic equations, conservation is the key to
+\index{hyperbolic equations}\index{conservation}
 understanding the propagation of shock waves, as we will explore in
 several chapters.
 
@@ -769,6 +780,7 @@ some motivations:
   \(h(x,t) = H(x/t)\) and \(u(x,t) = U(x/t)\) for some functions \(H\)
   and \(U\) of a single variable. The solution is said to be a
   \textbf{similarity solution} and this structure greatly facilitates
+  \index{similarity solutions}
   solving the Riemann problem. This is true even for nonlinear
   hyperbolic problems provided certain conditions are satisfied.
 \item
@@ -785,7 +797,9 @@ some motivations:
   general initial data use the Riemann solution as an essential building
   block. The most basic method of this type is \textbf{Godunov's
   method}, described below. Numerical methods typically make use of
+  \index{Godunov's method}
   \emph{approximate Riemann solvers}, which are often computationally
+  \index{approximate Riemann solvers}
   cheaper than an exact solver.
 \end{itemize}
 
@@ -891,6 +905,7 @@ how to determine whether each wave is a shock or rarefaction wave.
 \section{What is a hyperbolic PDE?}\label{what-is-a-hyperbolic-pde}}
 
 In this book we consider only first-order hyperbolic equations, meaning
+\index{hyperbolic equations}
 equations that involve only first derivatives in space and time. Many
 important hyperbolic PDE models can be written as a system of
 conservation laws:\\
@@ -911,6 +926,7 @@ for some matrix \(A\), then we have\\
 \end{align}\\
 We say that (\ref{intro:linconslaw}) is \textbf{hyperbolic} if \(A\) is
 diagonalizable with real eigenvalues; similarly, we say the nonlinear
+\index{eigenvalues}
 system (\ref{intro:conslaw}) is hyperbolic at some state \(q\) if the
 Jacobian matrix \(f'(q)\) is diagonalizable with real eigenvalues.
 
@@ -940,6 +956,7 @@ PDEs (and are included as examples in this book) are:
 \hypertarget{godunovs-method}{%
 \section{Godunov's method}\label{godunovs-method}}
 
+\index{Godunov's method}
 The role of the Riemann problem in the numerical solution of hyperbolic
 conservation laws can be traced back to the work of Godunov
 \cite{godunov1959difference}. He proposed a method of approximation
@@ -967,6 +984,7 @@ the solution by a piecewise-constant function, solvers may use a
 piecewise-polynomial representation of higher degree. Second, instead of
 solving the Riemann problem exactly, most modern methods use
 \textbf{approximate Riemann solvers}. Approximate solutions can often be
+\index{approximate Riemann solvers}
 obtained at much lower computational cost. Furthermore, the approximate
 Riemann solver can be designed so as to make the overall numerical
 solver more robust, by avoiding unphysical solution states. In Part II
@@ -976,6 +994,7 @@ of this book we explore some approximate solvers.
 \section{A linear example: acoustic
 waves}\label{a-linear-example-acoustic-waves}}
 
+\index{acoustics}
 We end this introduction with a sample linear system. Acoustic waves in
 one dimension can be modeled by the system of PDEs\\
 \begin{align}
@@ -1008,6 +1027,7 @@ with real eigenvalues.
 \subsection{The Riemann problem for
 acoustics}\label{the-riemann-problem-for-acoustics}}
 
+\index{Riemann problem ! for acoustics}
 The Riemann problem consists of (\ref{intro:acoustics}) together with
 initial data\\
 \begin{align*}
@@ -1021,26 +1041,19 @@ eigenvalue of \(A\). Between these two jumps lies a middle state
 different from the left and right states; we can think of solving the
 Riemann problem by finding the intersection (in the \(p\)-\(u\) plane,
 called the \emph{phase plane}) of lines passing through the left and
+\index{phase plane ! interactive plots for acoustics}
 right states that are each parallel to the appropriate eigenvector of A.
 This example is explored in more detail in
 Chapter \ref{sec:03-Acoustics}.
 
-Below (in the notebook version, or on
+Below, in the notebook version, or on
 \hreffoot{http://www.clawpack.org/riemann_book/phase_plane/acoustics_small.html}{this
-webpage}). we show the phase plane and the location of \(q_m\) relative
+webpage}, we show the phase plane and the location of \(q_m\) relative
 to \(q_\ell\) and \(q_r\). You can drag the left and right states around
 to see how this changes the solution. Also shown in the other two plots
 are the pressure \(p(x,t)\) and velocity \(u(x,t)\) at one particular
 time \(t=1\) for this Riemann solution.
 
-    \begin{Verbatim}[fontsize=\small,commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}8}]:} \PY{n}{IFrame}\PY{p}{(}\PY{n}{src}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{phase\PYZus{}plane/acoustics\PYZus{}small\PYZus{}notitle.html}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} 
-               \PY{n}{width}\PY{o}{=}\PY{l+m+mi}{980}\PY{p}{,} \PY{n}{height}\PY{o}{=}\PY{l+m+mi}{340}\PY{p}{)}
-\end{Verbatim}
-
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}8}]:} <IPython.lib.display.IFrame at 0x11d564630>
-\end{Verbatim}
             
 \hypertarget{phase-plane-plot-for-the-shallow-water-equations}{%
 \section{Phase plane plot for the shallow water
@@ -1059,16 +1072,9 @@ Below, in the notebook, or on
 webpage}, we provide an interactive view that allows you to see how the
 solution changes as you move the left and right states around in the
 phase plane. Note that for this nonlinear system the situation is much
+\index{phase plane ! interactive plots for shallow water equations}
 more complicated than in the linear acoustics case.
 
-    \begin{Verbatim}[fontsize=\small,commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}9}]:} \PY{n}{IFrame}\PY{p}{(}\PY{n}{src}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{phase\PYZus{}plane/shallow\PYZus{}water\PYZus{}verysmall.html}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} 
-               \PY{n}{width}\PY{o}{=}\PY{l+m+mi}{600}\PY{p}{,} \PY{n}{height}\PY{o}{=}\PY{l+m+mi}{530}\PY{p}{)}
-\end{Verbatim}
-
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}9}]:} <IPython.lib.display.IFrame at 0x11d564470>
-\end{Verbatim}
             
 \hypertarget{advection}{%
 \chapter{Advection}\label{advection}}
