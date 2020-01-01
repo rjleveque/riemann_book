@@ -321,12 +321,10 @@ particular hyperbolic system.
 The notation generally follows that of \cite{fvmhp}, which covers most
 of the topics included here and many others. We have kept citations to a
 minimum in these notebooks, but there are a wealth of other books and
-papers available in the literature.
-
-In particular, some other books that have substantial discussion of
-Riemann problems and related topics include \cite{lax:cbms},
-\cite{rjl:eth}, \cite{god-rav}, \cite{kroener1997},
-\cite{trangenstein2009}, \cite{toro2013riemann}, and
+papers available in the literature. In particular, some other books that
+have substantial discussion of Riemann problems and related topics
+include \cite{lax:cbms}, \cite{rjl:eth}, \cite{god-rav},
+\cite{kroener1997}, \cite{trangenstein2009}, \cite{toro2013riemann}, and
 \cite{hesthaven2018}.
 
 \hypertarget{book-formats}{%
@@ -419,7 +417,7 @@ ways to do this.
   With Docker: follow
   \hreffoot{https://github.com/clawpack/riemann_book/blob/master/Docker.md}{these
   instructions} to use the \texttt{Dockerfile} that is included in the
-  \hreffoot{https://github.com/clawpack/riemann_book}{Github repository}.
+  Github repository.
 \item
   With Binder: The cloud service \hreffoot{https://mybinder.org/}{binder}
   allows you to start up a notebook server running notebooks from any
@@ -462,14 +460,13 @@ and lack of positivity) are addressed. Part II concludes with
 comparisons of canonical approximate solvers for the shallow water and
 Euler systems.
 
-The \hreffoot{Index.ipynb}{Index} notebook contains links to the chapters of
-Parts I and II.
+The Chapter~\ref{Index} notebook contains links to the chapters of Parts I
+and II.
 
 The remaining parts are still a work in progress at the time of this
 writing, and are not included in the print or PDF version of the book.
-They can be found in the
-\hreffoot{https://github.com/clawpack/riemann_book}{Github repository} and
-additional topics may be added at a later date.
+They can be found in the Github repository and additional topics may be
+added at a later date.
 
 \hypertarget{writing-a-book-with-jupyter-notebooks}{%
 \section{Writing a book with Jupyter
@@ -490,8 +487,7 @@ convey the subject matter but also can serve as a template for other
 publishing projects or as an impetus to develop better approaches.
 
 All of the notebooks and associtated Python code are of course available
-in the \hreffoot{https://github.com/clawpack/riemann_book}{github
-repository}, and in addition we have written some
+in the github repository, and in addition we have written some
 \hreffoot{https://github.com/clawpack/riemann_book/wiki}{wiki pages} on
 various other tools we have found useful in developing this book. In
 particular, \hreffoot{https://github.com/takluyver/bookbook}{bookbook} has
@@ -1033,7 +1029,7 @@ time \(t=1\) for this Riemann solution.
 \end{Verbatim}
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}8}]:} <IPython.lib.display.IFrame at 0x117723ac8>
+{\color{outcolor}Out[{\color{outcolor}8}]:} <IPython.lib.display.IFrame at 0x11eca0ba8>
 \end{Verbatim}
             
 \hypertarget{phase-plane-plot-for-the-shallow-water-equations}{%
@@ -1061,7 +1057,7 @@ more complicated than in the linear acoustics case.
 \end{Verbatim}
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}9}]:} <IPython.lib.display.IFrame at 0x117723b00>
+{\color{outcolor}Out[{\color{outcolor}9}]:} <IPython.lib.display.IFrame at 0x11eca0e48>
 \end{Verbatim}
             
 \hypertarget{advection}{%
@@ -4575,9 +4571,9 @@ undefined in the vacuum state the middle state with \(p_m = 0\) actually
 connects to both integral curves, which correspond to the two outgoing
 rarefaction waves.
 
-\hypertarget{part-ii.-approximate-riemann-solvers}{%
-\chapter{Part II. Approximate Riemann
-Solvers}\label{part-ii.-approximate-riemann-solvers}}
+\hypertarget{introduction-to-approximate-riemann-solvers}{%
+\chapter{Introduction to Approximate Riemann
+Solvers}\label{introduction-to-approximate-riemann-solvers}}
 \label{sec:10-Approximate_solvers}
 In Part II of this book we present a number of \emph{approximate Riemann
 solvers}. We have already seen that for many important hyperbolic
@@ -6595,7 +6591,7 @@ Effectively, this means that \begin{align}
 
 Recall that once we have chosen these two wave speeds, conservation
 dictates the value of the intermediate state:\\
-\begin{align}  \label{SWA:hll_middle_state}
+\begin{align}  \label{EA:hll_middle_state}
 q_m = \frac{f(q_r) - f(q_\ell) - s_2 q_r + s_1 q_\ell}{s_1 - s_2}.
 \end{align}
 
