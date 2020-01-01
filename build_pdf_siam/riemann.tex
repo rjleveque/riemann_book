@@ -1079,6 +1079,7 @@ more complicated than in the linear acoustics case.
 \hypertarget{advection}{%
 \chapter{Advection}\label{advection}}
 \label{sec:02-Advection}
+\index{advection|(}
 We start our study with the scalar, linear hyperbolic PDE: the advection
 equation. The solution to this equation simply consists of the initial
 condition propagating with constant velocity. We first describe the
@@ -1108,6 +1109,7 @@ Both of these are functions of space and time: \(q = q(x,t)\);
 \end{equation*}\\
 This total mass changes over time due to flow in or out of this section
 of the tube. We call the rate of flow the \emph{flux}, and denote it by
+\index{flux}
 \(f(q)\). Thus the net rate of flow of mass into (or out of) the
 interval \([x_1,x_2]\) at time \(t\) is\\
 \[f(q(x_1,t)) - f(q(x_2,t)).\]\\
@@ -1125,16 +1127,18 @@ Since this integral vanishes for \emph{any} choice of \(x_1,x_2\), it
 must be that the integrand vanishes everywhere. Therefore we can write
 the \textbf{differential conservation law}\\
 \[q_t + f(q)_x = 0.\]\\
+\index{conservation}
 This equation expresses the fact that the total mass is conserved, since
 locally the mass can change only due to a net inflow or outflow.
 
 \hypertarget{advection}{%
-\section{Advection}\label{advection}}
+\section{Advection equation}\label{advection-equation}}
 
 In order to solve the conservation law above, we need an expression for
 the flux, \(f\). The rate of flow is just density times velocity:
 \(f=u q\). Thus we obtain the \textbf{continuity equation}\\
 \[q_t + (uq)_x = 0.\]
+\index{continuity equation}
 
 In general, we need another equation to determine the velocity
 \(u(x,t)\). In later chapters we'll examine models in which the velocity
@@ -1142,6 +1146,7 @@ depends on the density (or other properties), but for now let's consider
 the simplest case, in which the flow is characterized by a single,
 constant velocity \(u(x,t)=a\). Then the continuity equation becomes the
 \textbf{advection equation}\\
+\index{advection equation}
 \begin{align} \label{adv:advection}
     q_t + a q_x = 0.
 \end{align}\\
@@ -1153,7 +1158,7 @@ This equation has a very simple solution. Given the initial density
 
 \hypertarget{characteristics}{%
 \section{Characteristics}\label{characteristics}}
-
+\index{characteristics}
 Notice that the solution is constant along the line \(x-at=C\), for each
 value of \(C\). These are parallel, straight lines in the \(x-t\) plane,
 with slope \(1/a\), as shown in the figure below.
@@ -1192,6 +1197,7 @@ at finite speed is an essential property of hyperbolic PDEs.
 \hypertarget{the-riemann-problem}{%
 \section{The Riemann problem}\label{the-riemann-problem}}
 
+\index{Riemann problem ! for advection}
 The Riemann problem consists of a hyperbolic PDE, such as
 (\ref{adv:advection}), together with piecewise constant initial data
 consisting of two states. For convenience, we place the interface (or
@@ -1246,6 +1252,7 @@ thicker. The right plot shows the solution. \emph{In the live notebook
 you can advance a time slider and see how the wave propagates.} Try
 modifying the initial states and the velocity \(a\) to see how this
 simple solution changes.
+\index{advection|)}
 
 \hypertarget{acoustics}{%
 \chapter{Acoustics}\label{acoustics}}
