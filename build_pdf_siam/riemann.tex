@@ -1041,7 +1041,7 @@ eigenvalue of \(A\). Between these two jumps lies a middle state
 different from the left and right states; we can think of solving the
 Riemann problem by finding the intersection (in the \(p\)-\(u\) plane,
 called the \emph{phase plane}) of lines passing through the left and
-\index{phase plane ! interactive plots for acoustics}
+\index{phase plane ! for acoustics}
 right states that are each parallel to the appropriate eigenvector of A.
 This example is explored in more detail in
 Chapter \ref{sec:03-Acoustics}.
@@ -1072,7 +1072,7 @@ Below, in the notebook, or on
 webpage}, we provide an interactive view that allows you to see how the
 solution changes as you move the left and right states around in the
 phase plane. Note that for this nonlinear system the situation is much
-\index{phase plane ! interactive plots for shallow water equations}
+\index{phase plane ! for shallow water equations}
 more complicated than in the linear acoustics case.
 
             
@@ -1257,6 +1257,8 @@ simple solution changes.
 \hypertarget{acoustics}{%
 \chapter{Acoustics}\label{acoustics}}
 \label{sec:03-Acoustics}
+
+\index{acoustics|(}
 In this chapter we consider our first \emph{system} of hyperbolic
 conservation laws. We study the acoustics equations that were introduced
 briefly in Chapter \ref{sec:01-Introduction}. We first describe the
@@ -1319,6 +1321,7 @@ the conserved variables \(q\). In the present system, as is often the
 case, \(f\) is most naturally written in terms of so-called primitive
 variables (in this case \(\rho\) and \(u\)) rather than in terms of the
 conserved variables \(q\). In order to find the flux Jacobian (and thus
+\index{primitive variables}\index{conservative variables}\index{flux}
 the quasilinear form), we first write \(f\) in terms of the conserved
 variables \((q_1,q_2) = (\rho, \rho u)\):\\
 \begin{align}
@@ -1348,6 +1351,7 @@ results in the linear hyperbolic system\\
 p_t + u_0 p_x + P'(\rho_0) u_x & = 0 \\
 u_t + \frac{1}{\rho_0} p_x + u_0 u_x & = 0,
 \end{align*} where \(p(x,t)\) is the pressure as a function of \(x\) and
+\index{pressure}
 \(t\). If the ambient fluid is at rest (i.e. \(u_0=0\)) and the pressure
 is directly proportional to the density, then this simplifies to
 \begin{align} \label{Ac:main}
@@ -1363,6 +1367,7 @@ p \\
 u \end{array} \right]_x = 0,
 \end{align} where \(K_0=P'(\rho_0)\) is referred to as the bulk modulus
 of compressibility. The system of equations (\ref{Ac:main}) is called
+\index{bulk modulus}\index{acoustics equations}
 the linear acoustics equations.
 
 For the rest of this chapter we work with (\ref{Ac:main}) and let
@@ -1384,6 +1389,7 @@ R^{-1}q_t + \Lambda R^{-1} q_x & = 0 \\
 w_t + \Lambda w_x & = 0,
 \end{align*} where we have introduced the \emph{characteristic
 variables} \(w=R^{-1}q\). The last system above is simply a pair of
+\index{characteristic variables}
 decoupled advection equations for \(w_1\) and \(w_2\), with velocities
 \(\lambda_1\) and \(\lambda_2\); a system we already know how to solve.
 Thus we see that the eigenvalues of \(A\) are the velocities at which
@@ -1464,6 +1470,7 @@ characteristics variables simply obeys an uncoupled advection equation.
 \hypertarget{the-riemann-problem}{%
 \section{The Riemann problem}\label{the-riemann-problem}}
 
+\index{Riemann problem ! for acoustics}
 Now that we know how to solve the Cauchy problem, solution of the
 Riemann problem is merely a special case. We have the special initial
 data\\
@@ -1560,6 +1567,7 @@ The left and right wave speeds are:
 
 One way to visualize the Riemann solution for a system of two equations
 is by looking at the \(p-u\) phase plane. In the figure below, we show
+\index{phase plane ! for acoustics}
 the two initial conditions of the Riemann problem \(q_\ell\) and \(q_r\)
 as points in the phase space; the lines passing through these points
 correspond to the eigenvectors, \(r_1\) and \(r_2\).
@@ -1603,6 +1611,7 @@ solutions for a few examples.
 \hypertarget{shock-tube}{%
 \subsection{Shock tube}\label{shock-tube}}
 
+\index{shock tube}
 If there is a jump in pressure and the velocity is zero in both initial
 states (the shock tube problem) then the resulting Riemann solution
 consists of pressure jumps of equal magnitude propagating in both
@@ -1637,6 +1646,7 @@ plane.
 \hypertarget{reflection-from-a-wall}{%
 \subsection{Reflection from a wall}\label{reflection-from-a-wall}}
 
+\index{reflection from wall}
 As another example, suppose the pressure is initially the same in the
 left and right states, while the velocities are non-zero with
 \(u_r = -u_\ell > 0\). The flow is converging from both sides and
@@ -1672,6 +1682,7 @@ that the velocity vanishes at the wall, as it must. This type of Riemann
 solution is important when simulating waves in a domain with reflecting
 boundaries. The reflecting condition can be imposed by the use of
 fictitious \emph{ghost cells} that lie just outside the domain and whose
+\index{ghost cells}
 state is set by reflecting the interior solution with the symmetry just
 described (equal pressure, negated velocity).
 
@@ -1706,6 +1717,7 @@ animation is produced using a numerical method from
 interactive notebook or on
 \hreffoot{http://www.clawpack.org/riemann_book/html/acoustics_bump_animation.html}{this
 webpage}.
+\index{acoustics|)}
 
 \hypertarget{burgers-equation}{%
 \chapter{Burgers' equation}\label{burgers-equation}}
