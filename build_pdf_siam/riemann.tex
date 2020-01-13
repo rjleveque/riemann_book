@@ -282,6 +282,7 @@
     
     
     
+\frontmatter
     
 \maketitle
 
@@ -340,6 +341,7 @@ This book is available in three formats:
   The traditional print medium, in the form of a physical book.
 \item
   As a collection of \hreffoot{https://jupyter.org/}{Jupyter notebooks} with
+  \index{Jupyter notebooks}
   executable code and interactive animations, available from the Github
   repository \url{https://github.com/clawpack/riemann_book}. These are
   not meant to be read on Github, but copied to a local machine or cloud
@@ -417,13 +419,16 @@ ways to do this.
   On your own computer: follow the
   \hreffoot{https://github.com/clawpack/riemann_book\#installation}{installation
   instructions}
+  \index{installation}
 \item
   With Docker: follow
   \hreffoot{https://github.com/clawpack/riemann_book/blob/master/Docker.md}{these
   instructions} to use the \texttt{Dockerfile} that is included in the
   \hreffoot{https://github.com/clawpack/riemann_book}{Github repository}.
+  \index{Dockerfile}
 \item
   With Binder: The cloud service \hreffoot{https://mybinder.org/}{binder}
+  \index{Binder cloud service}
   allows you to start up a notebook server running notebooks from any
   Git repository (assuming it specifies the dependencies properly). You
   can try it out for these notebooks at
@@ -531,6 +536,7 @@ Fernando Perez and several others helped us out at many points during
 the development of this book. Jake Vanderplas originally developed the
 JSAnimation package for us to use in Clawpack, and helped us with a
 number of other notebook issues.
+\index{Clawpack}
 
 The initial idea for this book arose during discussions at the Clawpack
 Developers Workshop held at the University of Utah, just before the 2015
@@ -549,6 +555,8 @@ them for your own non-commercial purposes. Although running the
 notebooks is the best way to experience this material, we hope you will
 also buy the book and support SIAM -- or better yet, write your own book
 and publish with them.
+
+\mainmatter
 
 \part{Exact Riemann Solvers}
 
@@ -710,11 +718,11 @@ animation}\label{things-to-note-about-this-animation}}
   velocity remain continuous functions of \(x\) in this region for all
   time. The depth and velocity vary through a \textbf{rarefaction wave}
   that moves upstream.
-  \index{rarefaction wave}
+  \index{rarefaction waves}
 \item
   The water downstream from the dam is stationary until a \textbf{shock
   wave} passes by, which instantaneously accelerates the fluid from
-  \index{shock wave}
+  \index{shock waves}
   \(u_r=0\) to some constant velocity \(u_m >0\). At the same time the
   depth increases from \(h_r\) to \(h_m\). This \emph{middle state}
   depth and velocity is the same as the depth and velocity that the
@@ -1072,7 +1080,7 @@ Below, in the notebook, or on
 webpage}, we provide an interactive view that allows you to see how the
 solution changes as you move the left and right states around in the
 phase plane. Note that for this nonlinear system the situation is much
-\index{phase plane ! for shallow water equations}
+\index{phase plane ! for shallow water}
 more complicated than in the linear acoustics case.
 
             
@@ -1351,7 +1359,7 @@ results in the linear hyperbolic system\\
 p_t + u_0 p_x + P'(\rho_0) u_x & = 0 \\
 u_t + \frac{1}{\rho_0} p_x + u_0 u_x & = 0,
 \end{align*} where \(p(x,t)\) is the pressure as a function of \(x\) and
-\index{pressure}
+\index{pressure ! in acoustics}
 \(t\). If the ambient fluid is at rest (i.e. \(u_0=0\)) and the pressure
 is directly proportional to the density, then this simplifies to
 \begin{align} \label{Ac:main}
@@ -1714,6 +1722,7 @@ conditions are imposed at \(x=-2\) and \(x=2\), so the wave is fully
 reflected back, and we can see how it interacts with itself. This
 animation is produced using a numerical method from
 \hreffoot{http://www.clawpack.org/pyclaw/}{PyClaw}, and can be viewed in the
+\index{PyClaw}
 interactive notebook or on
 \hreffoot{http://www.clawpack.org/riemann_book/html/acoustics_bump_animation.html}{this
 webpage}.
@@ -1722,7 +1731,9 @@ webpage}.
 \hypertarget{burgers-equation}{%
 \chapter{Burgers' equation}\label{burgers-equation}}
 \label{sec:04-Burgers}
+\index{Burgers equation |(}
 In this chapter, we study a simple scalar nonlinear conservation law:
+\index{nonlinear conservation law}
 Burgers' equation. Burgers' equation models momentum transport in a
 fluid of uniform density and pressure, and it is the simplest equation
 that captures some key features of gas dynamics or water waves.
@@ -1744,6 +1755,7 @@ To examine the Python code for this chapter, see:
 Burgers' equation has been used extensively for developing both theory
 and numerical methods, and it will allow us to explore the Riemann
 problem for a nonlinear conservation law. Burgers' equation is a scalar
+\index{flux function ! for Burgers' equation}
 conservation law with flux \(f(q)=q^2/2\): \begin{align}
 q_t + \left(\frac{1}{2}q^2\right)_x = 0.
 \label{burgers0}
@@ -1764,6 +1776,7 @@ conservation law that has a similar structure to Burgers' equation and a
 simpler physical interpretation.
 
 The \emph{characteristic speed} for Burgers' equation is \(f'(q) = q\).
+\index{characteristic speeds}
 As long as the solution is smooth, the solution is constant along
 characteristic curves \(X(t)\) satisfying \(X'(t) = f'(q(X(t),t)\) since
 then \[
@@ -1775,6 +1788,7 @@ not parallel and characterstics may converge or spread out.
 \hypertarget{shock-formation}{%
 \section{Shock formation}\label{shock-formation}}
 
+\index{shock formation}
 In the figure below we consider Burgers' equation with a Gaussian hump
 as the initial data. Since the characteristic speed in Burgers' equation
 is given by \(q\) itself, the peak of the hump travels faster than the
@@ -1796,12 +1810,15 @@ later times.
     
 Notice that at first \(q\) remains single-valued for every \(x\).
 However, after some time the crest of the wave overtakes the leading
+\index{multi-valued solution}
 edge. After this time, we obtain a triple-valued solution for certain
 values of \(x\). The first time this overtaking happens is referred to
 as the \emph{breaking time} -- a reference to waves breaking on the
+\index{breaking time}
 beach. It is also the point where the conservation law, in its
 differential form, breaks down and where the characteristics cross each
 other for the first time. When characteristics cross, a shock wave, or
+\index{shock waves}
 discontinuity, forms. Mathematically, replacing the triple-valued region
 with a discontinuity will avoid the problem of the solution being
 multivalued. Where should the shock be located?
@@ -1812,6 +1829,7 @@ mass will be added (area \(A_2\) in the figure below). In the live
 notebook, the figure below shows possible locations for the shock at a
 given time; in order to maintain conservation of the integral of \(q\),
 the shock must be placed so that these two areas are equal.
+\index{equal area rule}
 
     \begin{Verbatim}[fontsize=\small,commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}6}]:} \PY{n}{interact}\PY{p}{(}\PY{n}{burgers\PYZus{}demos}\PY{o}{.}\PY{n}{shock\PYZus{}location}\PY{p}{,} 
@@ -1827,6 +1845,7 @@ the shock must be placed so that these two areas are equal.
 This geometric reasoning provides a nice intuition for the shock
 location, but is cumbersome in practice. To determine the location of
 the shock we can use the \emph{Rankine-Hugoniot jump condition,} which
+\index{Rankine-Hugoniot condition}
 we will derive in Chapter \ref{sec:05-Traffic_flow}, and which requires
 that the jump in flux across a propagating shock must be related to the
 jump in \(q\) by \[
@@ -1845,8 +1864,10 @@ speed of a shock will change in time.
 \hypertarget{shock-solution}{%
 \subsection{Shock solution}\label{shock-solution}}
 
+\index{shock waves}
 For Burgers' equation, (or any scalar hyperbolic conservation law with a
 \emph{convex} flux function, such as the traffic flow problem considered
+\index{convex flux functions}
 in Chapter \ref{sec:05-Traffic_flow}), the solution of the Riemann
 problem consists of a single wave, which may be either a shock or a
 rarefaction, separating regions of constant value \(q_\ell\) and
@@ -1885,6 +1906,7 @@ condition that leads to a shock (i.e.~with \(q_\ell>q_r\)).
 \hypertarget{rarefaction-wave}{%
 \section{Rarefaction wave}\label{rarefaction-wave}}
 
+\index{rarefaction waves}
 In the previous figure with the hump as the initial condition, we
 observed that a shock formed on the right side of the hump. However, on
 the left side, the characteristics spread out and will never cross. This
@@ -1925,6 +1947,7 @@ q_r, \quad \text{for} \ \ x>q_r t.
 
 As we will see in Chapter \ref{sec:05-Traffic_flow}, the rarefaction
 solution is always a self-similar solution. This means that it can be
+\index{similarity solutions}
 expressed as a function of the ratio between position and time
 \(q(x,t) = \tilde{q}(x/t)\), so it remains the same when rescaling both
 \(x\) and \(t\) by the same factor. In Burgers' equation, the form of
@@ -1953,6 +1976,7 @@ In the figure below, we plot a solution of the Riemann problem with
 \hypertarget{weak-solutions}{%
 \section{Weak solutions}\label{weak-solutions}}
 
+\index{weak solutions}
 As we mentioned before, the differential form of the equation breaks
 down in the presence of shocks/discontinuities. However, the integral
 form of the conservation law remains valid. Let's integrate the general
@@ -2011,6 +2035,7 @@ q_r \quad \text{if} \ \ x/t>s.
 \end{cases}
 \end{align*} This unphysical solution is also referred to as an
 expansion shock, and it is also a weak solution to Burgers' equation. In
+\index{expansion shock}
 the next figure, we plot this weak solution.
 
     \begin{Verbatim}[fontsize=\small,commandchars=\\\{\}]
@@ -2033,6 +2058,7 @@ solutions is physically correct, we need to derive a mathematical
 condition from our physical intuition gained from observing the behavior
 of the characteristics. This condition is referred to as the entropy
 condition.
+\index{entropy condition}
 
 \hypertarget{the-entropy-condition}{%
 \subsection{The entropy condition}\label{the-entropy-condition}}
@@ -2040,11 +2066,14 @@ condition.
 A given initial value problem for a hyperbolic PDE may have many weak
 solutions. A condition that selects a unique physically correct solution
 out of these weak solutions is called an \emph{admissibility condition}
+\index{admissibility condition}
 or more often an \emph{entropy condition}. This name comes from gas
 dynamics, where the physical entropy must increase in the gas passing
+\index{gas dynamics}
 through a shock, according to the second law of thermodynamics. A
 discontinuity that violates this is non-physical. A mathematical
 ``entropy function'' with a similar property can often be defined for
+\index{entropy function}
 other conservation laws. More discussion of this and several other
 formulations of admissibility conditions, with more detailed
 explanations, are available in the literature, for example in many of
@@ -2060,6 +2089,7 @@ f'(q_\ell) > f'(q_r).
 \] In other words, the solution is a shock only if nearby
 characteristics from the left and right approach the shock as time
 progresses. This is often called the \emph{Lax Entropy Condition}. If
+\index{entropy condition ! Lax}
 nearby characteristics are spreading out, as in the last example, the
 correct solution is instead a rarefaction. In the case of Burgers'
 equation, the flux function is \(f(q)=q^2/2\), so the correct solution
@@ -2072,6 +2102,7 @@ generalizes to systems of conservation laws.
 \hypertarget{convexity}{%
 \subsection{Convexity}\label{convexity}}
 
+\index{convex flux functions}
 The flux \(f(q) = q^2/2\) for Burgers' equation is a convex function,
 since \(f''(q) = 1 > 0\) for all values of \(q\). This means that as
 \(q\) varies between \(q_\ell\) and \(q_r\) the the characteristic speed
@@ -2114,10 +2145,12 @@ phenomena we will observe in more complicated systems, with more
 interesting initial data that the single jump discontinuity of a Riemann
 problem. For the animations shown below, the solution is computed
 numerically using \hreffoot{http://www.clawpack.org/pyclaw/}{PyClaw}.
+\index{PyClaw}
 
 \hypertarget{bump-initial-conditions}{%
 \subsection{Bump initial conditions}\label{bump-initial-conditions}}
 
+\index{bump initial conditions}
 The animation below in the notebook, or on
 \hreffoot{http://www.clawpack.org/riemann_book/html/burgers_animation0.html}{this
 webpage}, shows the solution of Burgers' equation for an initial
@@ -2129,6 +2162,7 @@ rarefaction.
 \subsection{Three-state data with merging
 shocks}\label{three-state-data-with-merging-shocks}}
 
+\index{three-state initial data}
 For an initial condition that is piecewise-constant with three values,
 one can solve Burgers' equation by solving a Riemann problem locally for
 each discontinuity and then considering how the resulting waves
@@ -2148,6 +2182,7 @@ let us assume that both Riemann problems produce a right-propagating
 shock. However, the shock generated at \(x=-1\) propagates faster, so it
 will eventually reach the shock originally generated at \(x=1\). At the
 point in time when the shocks collide, one can simply restate the
+\index{shock collision}
 problem again as a Riemann problem and solve the whole problem
 analytically. In this animation, the plot on the left shows the solution
 \(q(x)\) evolving through time, while the one on the right shows the
@@ -2169,6 +2204,7 @@ or on
 \hreffoot{http://www.clawpack.org/riemann_book/html/burgers_animation2.html}{this
 webpage}, shows how a right-propagating shock can overtake a
 rarefaction. The shock speed changes as it passes through the
+\index{rarefaction waves}
 rarefaction, since the state just to the left of the shock is changing.
 This is seen clearly in the \(x-t\) plane, where the slope of the shock
 is changed after interacting with the rarefaction. Note the shock is
@@ -2186,15 +2222,20 @@ constant change of the shock propagation velocity.
 In the notebook, try modifying the values of \(q_\ell\), \(q_m\) and
 \(q_r\) in order to see what other behavior can be observed. Is it
 possible to observe two interacting rarefactions?
+\index{Burgers equation |)}
 
 \hypertarget{traffic-flow-the-lighthill-whitham-richards-model}{%
 \chapter{Traffic flow: the Lighthill-Whitham-Richards
 model}\label{traffic-flow-the-lighthill-whitham-richards-model}}
 \label{sec:05-Traffic_flow}
+
+\index{traffic flow|(}
+
 In this chapter we investigate a conservation law that models the flow
 of traffic. This model is sometimes referred to as the
 Lighthill-Whitham-Richards (or LWR) traffic model (see
 \cite{lighthill1955kinematic} and \cite{richards1956shock}). This model
+\index{LWR model}
 and the corresponding Riemann problem are discussed in many places; the
 discussion here is most closely related to that in Chapter 11 of
 \cite{fvmhp}.
@@ -2202,6 +2243,7 @@ discussion here is most closely related to that in Chapter 11 of
 This nonlinear scalar problem is similar to Burgers' equation that we
 already discussed in Chapter \ref{sec:04-Burgers} in many ways, since
 both involve a quadratic (and hence convex) flux function. In this
+\index{convex flux functions}
 notebook we repeat some of the discussion from
 Chapter \ref{sec:04-Burgers} in order to reinforce essential concepts
 that will be important throughout the remainder of the book.
@@ -2224,6 +2266,7 @@ If you wish to examine the Python code for this chapter, please see:
 \section{The LWR model}\label{the-lwr-model}}
 
 Recall the continuity equation for any density that is advected with a
+\index{continuity equation}
 flow: \[\rho_t + (u\rho)_x = 0.\]\\
 In this chapter, \(\rho\) represents the density of cars on a road,
 traveling with velocity \(u\). Note that we're not keeping track of the
@@ -2274,7 +2317,8 @@ actually occurs when the road is half full, as the plot below shows.
     \end{center}
     { \hspace*{\fill} \\}
     
-Like the flux in Bugers' equation, the LWR flux is \textbf{nonlinear},
+Like the flux in Burgers' equation, the LWR flux is \textbf{nonlinear},
+\index{nonlinear conservation law}
 so we again expect to see shock waves and rarefaction waves in the
 solution. We can superficially make this equation look like the
 advection equation by using the chain rule to write it in quasilinear
@@ -2285,6 +2329,7 @@ Then we have\\
 This is like the advection equation, but with a velocity \(1-2\rho\)
 that depends on the density of cars. The value \(f'(\rho)=1-2\rho\) is
 referred to as the \emph{characteristic speed}. This characteristic
+\index{characteristic speeds}
 speed is not the speed at which cars move (notice that it can even be
 negative, whereas cars only drive to the right in our model) Rather, it
 is the speed at which \emph{information} is transmitted along the road.
@@ -2294,12 +2339,14 @@ characteristic speed is a decreasing function of the density.
 \hypertarget{example-traffic-jam}{%
 \section{Example: Traffic jam}\label{example-traffic-jam}}
 
+\index{traffic jam}
 What does our model predict when traffic approaches a totally congested
 (\(\rho=1\)) area? This might be due to construction, an accident or a
 red light somewhere to the right; upstream of the obstruction, cars will
 be bumper-to-bumper, so we set \(\rho=1\) for \(x>0\) (supposing that
 traffic has backed up to that point). For \(x<0\) we'll assume a lower
 density \(\rho_\ell<1\). This is another example of a Riemann problem:
+\index{Riemann problem ! for traffic}
 two constant states separated by a discontinuity. We have\\
 \[
 \rho(x,t=0) = \begin{cases} \rho_\ell & x<0 \\
@@ -2338,6 +2385,7 @@ either negative or positive depending on \(\rho_\ell\), and
 \section{Speed of a shock wave: the Rankine-Hugoniot
 condition}\label{speed-of-a-shock-wave-the-rankine-hugoniot-condition}}
 
+\index{Rankine-Hugoniot condition}
 In the plot above, we see a shock wave (i.e., a discontinuity) that
 moves to the left as more and more cars pile up behind the traffic jam.
 How quickly does this discontinuity move to the left?
@@ -2402,6 +2450,7 @@ does so more quickly if there is a greater density of approaching cars.
 \hypertarget{example-green-light}{%
 \section{Example: green light}\label{example-green-light}}
 
+\index{green light}
 What about when a traffic light turns green? At \(t=0\), when the light
 changes, there will be a discontinuity, with traffic backed up behind
 the light but little or no traffic after the light. With the light at
@@ -2422,6 +2471,7 @@ time zero it becomes continuous.
 \hypertarget{similarity-solutions}{%
 \subsection{Similarity solutions}\label{similarity-solutions}}
 
+\index{similarity solutions}
 The exact form of the solution at a green light can be determined by
 assuming that the solution \(\rho(x,t)\) depends only on \(x/t\). A
 solution with this property is referred to as a \emph{similarity
@@ -2488,6 +2538,7 @@ characteristic following \(x= f'(q_r)t\).
 How can we determine whether an initial discontinuity will lead to a
 shock or a rarefaction? We have already addressed this for scalar
 equations in Chapter \ref{sec:04-Burgers}. Recall the Lax Entropy
+\index{entropy condition ! Lax}
 Condition introduced there:
 
 \begin{itemize}
@@ -2508,6 +2559,7 @@ these characteristic speeds:
 \[f'(\rho_\ell) > s > f'(\rho_r).\]
 
 We say that the characteristics \emph{impinge} on the shock.
+\index{shock waves}
 
 Here is an example showing the characteristics near a shock:
 
@@ -2521,6 +2573,7 @@ Here is an example showing the characteristics near a shock:
     { \hspace*{\fill} \\}
     
 On the other hand, if \(f'(\rho_\ell)< f'(\rho_r)\), then a rarefaction
+\index{rarefaction waves}
 wave results and the initial discontinuity immediately spreads out.
 
 Here is an example showing the characteristics in a rarefaction.
@@ -2540,6 +2593,7 @@ Here is an example showing the characteristics in a rarefaction.
 Many other traffic flow models exist. Some of them are \emph{continuum
 models}, like the one presented here, that model traffic density and
 velocity as an aggregate. Others are \emph{particle} or \emph{agent}
+\index{particle methods}
 models, that simulate individual vehicles. You can see simulations of
 the latter kind on
 \hreffoot{http://www.traffic-simulation.de/routing.html}{this webpage}.
@@ -2547,13 +2601,18 @@ Shock waves and rarefaction waves naturally appear in such agent-based
 models too, and viewing some of these simulations may give you better
 intuition for the development of shocks and rarefactions in the context
 of traffic jams.
+\index{traffic flow|)}
 
 \hypertarget{nonconvex-scalar-conservation-laws}{%
-\chapter{Nonconvex scalar Conservation
+\chapter{Nonconvex Scalar Conservation
 Laws}\label{nonconvex-scalar-conservation-laws}}
 \label{sec:06-Nonconvex_scalar}
+
+\index{nonconvex scalar problem |(}
+
 The scalar nonlinear conservation law \(q_t + f(q)_x = 0\) is said to be
 ``genuinely nonlinear'' over some range of states between \(q_\ell\) and
+\index{genuinely nonlinear}
 \(q_r\) if \(f''(q) \neq 0\) for all \(q\) between these values. This is
 true in particular if \(f(q)\) is any quadratic function; for example,
 the flux function for Burgers' equation and the LWR traffic flow model
@@ -2567,6 +2626,7 @@ the initial discontinuity of a Riemann problem spreads out into a smooth
 single-valued rarefaction wave. On the other hand if \(f'(q)\) is
 decreasing then the discontinuity propagates as a single shock wave with
 speed given by the Rankine-Hugoniot condition. Hence the Riemann
+\index{Rankine-Hugoniot condition}
 solution for a genuinely nonlinear scalar equation always consists of
 either a single rarefaction wave or a single shock.
 
@@ -2583,6 +2643,7 @@ challenging.
 In this chapter, we focus on \emph{scalar nonconvex} problems and
 present results computed using an elegant form of the exact solution for
 a general scalar conservation laws due to Osher. At the end of the
+\index{Osher's solution}
 chapter we comment briefly on implications for systems of equations.
 
 \hypertarget{oshers-solution}{%
@@ -2626,6 +2687,7 @@ Note that in {exact\_solvers/nonconvex.py} we use the function
 \texttt{nonconvex\_solutions} that evaluates this solution at a set of
 \texttt{xi\ =\ x/t} values. It also computes the possibly multi-valued
 solution that would be obtained by tracing characteristics, for plotting
+\index{multi-valued solution}
 purposes. In {exact\_solvers/nonconvex\_demos.py}, an additional
 function \texttt{make\_plot\_function} returns a plotting function for
 use in interactive widgets below.
@@ -2633,6 +2695,7 @@ use in interactive widgets below.
 \hypertarget{traffic-flow}{%
 \section{Traffic flow}\label{traffic-flow}}
 
+\index{traffic flow}
 First we recall that the Riemann solution for a problem with convex flux
 consists of a single shock or rarefaction wave. For example, consider
 the flux function \(f(q) = q(1-q)\) from traffic flow (with \(q\) now
@@ -2656,6 +2719,8 @@ solution consists of a shock wave (solid line). As discussed in
 Chapter \ref{sec:05-Traffic_flow}, the shock location is determined by
 the Rankine-Hugniot condition, or, equivalently, by the equal area
 condition discussed in Chapter \ref{sec:04-Burgers}.
+\index{Rankine-Hugoniot condition}
+\index{equal area rule}
 
 For comparison with later examples, we also plot the quadratic flux
 function \(f(q)\) and the linear characteristic speed \(f'(q)\) for this
@@ -2726,6 +2791,7 @@ consists partly of a rarefaction wave together with a shock wave.
 
 In the plot on the right, we also show the flux function \(f(q)\) as a
 red curve and the upper boundary of the convex hull of the set of points
+\index{convex hull}
 below the graph for \(q_r \leq q \leq q_\ell\). Note that the convex
 hull boundary follows the flux function for the set of \(q\) values
 corresponding to the rarefaction wave and then jumps from
@@ -2942,15 +3008,19 @@ either a discontinuity or a rarefaction wave. The fact that there is
 only one wave in each family results from the fact that, for these
 systems, each characteristic speed either varies monotonically through
 the wave (the field is said to be \emph{genuinely nonlinear}) or else is
+\index{genuinely nonlinear}
 constant across the wave (in which case the field is called
 \emph{linearly degenerate}). In the former case the wave is either a
 single shock or rarefaction wave, and in the latter case the wave is a
 ``contact discontinuity'', as discussed further in
+\index{contact discontinuity}
 Chapter \ref{sec:08-Shallow_tracer} and Chapter \ref{sec:09-Euler}. As
 in the case of scalar advection, the characteristic speed is constant
 across a contact discontinuity (\(f'(q) \equiv 0\) between the left and
 right states). The definition of genuine nonlinearity and linear
 degeneracy for systems of equations is given in
+\index{genuine nonlinearity}
+\index{linear degeneracy}
 Chapter \ref{sec:08-Shallow_tracer}.
 
 The nonconvex equations studied in this chapter illustrate that even for
@@ -2961,11 +3031,14 @@ degenerate (the advection equation). \emph{Systems} of equations that
 lack the corresponding properties are more difficult still and are
 beyond the scope of this book, although they do arise in some important
 applications, such as magnetohydrodynamics (MHD).
+\index{nonconvex scalar problem |)}
 
 \hypertarget{the-shallow-water-equations}{%
 \chapter{The shallow water
 equations}\label{the-shallow-water-equations}}
 \label{sec:07-Shallow_water}
+
+\index{shallow water equations|(}
 In this chapter we study a model for shallow water waves in one
 dimension:\\
 \begin{align}
@@ -2975,8 +3048,10 @@ dimension:\\
 Here \(h\) is the depth, \(u\) is the velocity, and \(g\) is a constant
 representing the force of gravity. These equations are ``depth
 averaged'' and neglect vertical velocity and any vertical variations in
+\index{depth averaging}
 the horizontal velocity. Viscosity and compressibility are neglected,
 and the pressure is assumed to be hydrostatic. Nevertheless, this is a
+\index{pressure ! hydrostatic}
 surprisingly effective model for many applications, particularly when
 the wavelength is long compared to the fluid depth.
 
@@ -2998,6 +3073,7 @@ We can write (\ref{SW_mass})-(\ref{SW_mom}) in the canonical form
 q & = \begin{pmatrix} h \\ hu \end{pmatrix}, & f & = \begin{pmatrix} hu \\ hu^2 + \frac{1}{2}gh^2 \end{pmatrix}.
 \end{align}\\
 In terms of the conserved quantities, the flux is\\
+\index{flux function ! for shallow water}
 \begin{align}
 f(q) & = \begin{pmatrix} q_2 \\ q_2^2/q_1 + \frac{1}{2}g q_1^2 \end{pmatrix}.
 \end{align}\\
@@ -3037,6 +3113,7 @@ If you wish to examine the Python code for this chapter, see
 
 For convenience we will work in units such that the gravitational
 constant \(g=1\).
+\index{gravitational constant}
 
     \begin{Verbatim}[fontsize=\small,commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}3}]:} \PY{n}{g} \PY{o}{=} \PY{l+m+mf}{1.}
@@ -3045,6 +3122,7 @@ constant \(g=1\).
 \hypertarget{the-riemann-problem}{%
 \section{The Riemann problem}\label{the-riemann-problem}}
 
+\index{Riemann problem ! for shallow water}
 Consider the Riemann problem with left and right states
 
 \begin{align*}
@@ -3076,10 +3154,12 @@ To solve the Riemann problem, we must find \(q_m\). To do so we must
 find a state that can be connected to \(q_\ell\) by a 1-shock or
 1-rarefaction and to \(q_r\) by a 2-shock or 2-rarefaction. We must also
 ensure that the resulting waves satisfy the entropy condition.
+\index{entropy condition}
 
 \hypertarget{shock-waves}{%
 \section{Shock waves}\label{shock-waves}}
 
+\index{shock waves}
 Let us now consider a shock wave connecting a known state
 \(q_*=(h_*, h_* u_*)\) to an unknown state \(q=(h,hu)\). In the context
 of the Riemann problem, \(q_*\) will be the known left or right state
@@ -3114,6 +3194,7 @@ depth approaches that suggested by the eigenvectors
 We can now consider the set of all possible states \((h, h u)\)
 satisfying (\ref{SW:hugoniot-locus}). This curve in the \(h - hu\) plane
 is known as the Hugoniot locus; there is a family of Hugoniot loci for
+\index{Hugoniot locus}
 1-shocks and another for 2-shocks. Below we plot some members of the
 1-loci of curves. \emph{In the interactive notebook you can select the
 2-loci instead.}
@@ -3131,6 +3212,7 @@ is known as the Hugoniot locus; there is a family of Hugoniot loci for
     
 The plot above shows the Hugoniot loci in the \(h\)-\(hu\) plane, the
 natural phase plane in terms of the two conserved quantities. Of course,
+\index{phase plane ! for shallow water}
 they all approach the origin as \(h \rightarrow 0\). Alternatively, we
 can plot these same curves in the \(h\)-\(u\) plane:
 
@@ -3188,6 +3270,7 @@ visualize the fluid velocity in these plots.
     { \hspace*{\fill} \\}
     
 \emph{In the interactive notebook you can check the boxes to plot the
+\index{characteristics}
 characteristic families, and notice that the} 1-\emph{characteristics
 impinge on the} 1-\emph{shock; the} 2-\emph{characteristics impinge on
 the} 2-\emph{shock. Thus these shocks satisfy the entropy condition. You
@@ -3240,6 +3323,7 @@ line.
 
 For the 2-shock Riemann solution to be physically correct, each of the
 waves must satisfy the Lax entropy condition, with the characteristic
+\index{entropy condition ! Lax}
 speed to the left of the wave greater than that to the right. Notice
 that the shock speed (\ref{SW:shock-speed}) can be written as
 
@@ -3280,6 +3364,8 @@ unphysical.
 \hypertarget{integral-curves}{%
 \subsection{Integral curves}\label{integral-curves}}
 
+\index{rarefaction waves}
+\index{integral curves}
 In the LWR traffic flow model, we saw that a rarefaction wave consisted
 of a smoothly varying density. For the shallow water system, both the
 depth \(h\) and the momentum \(hu\) will vary smoothly through a
@@ -3323,6 +3409,7 @@ From (\ref{SW:riemann-invariant}) we see that the value
 \(u + 2 \sqrt{gh}\) is constant along any 1-integral curve, while the
 value \(u-2\sqrt{gh}\) is constant along any 2-integral curve. We refer
 to these quantities as \emph{Riemann invariants} for the shallow water
+\index{Riemann invariants}
 system:
 
 \begin{align}
@@ -3373,6 +3460,8 @@ approaches a finite value.
 loci}\label{comparison-of-integral-curves-and-hugoniot-loci}}
 
 You may have noticed that the integral curves look very similar to the
+\index{integral curves}
+\index{Hugoniot loci}
 Hugoniot loci, especially when plotted in the \(h-hu\) plane. Below we
 emphasize the differences by plotting the curve from each of these
 families that passes through a specified point. The difference is less
@@ -3409,6 +3498,7 @@ finite velocity.
 waves}\label{the-structure-of-centered-rarefaction-waves}}
 
 Rarefactions appearing in the Riemann solution are also similarity
+\index{similarity solutions}
 solutions; that is, they are constant along any ray \(\xi=x/t\). For a
 \(p\)-rarefaction connecting states \(q_\ell\) and \(q_r\), the
 rarefaction thus has the form
@@ -3458,6 +3548,7 @@ We see that \(h\) varies quadratically through the rarefaction, while
 Suppose we know that the middle state \(q_m\) is connected to the left
 and right states by rarefactions. Then we can find \(q_m\) by finding
 the intersection of the corresponding integral curves. Here is an
+\index{integral curves}
 example for which this is the physically correct solution:
 
 \begin{align}
@@ -3493,6 +3584,7 @@ connecting to states with greater depth is plotted with a dashed line.
 This again is to remind us that states connected by a rarefaction
 through the solid part are physical (entropy-satisfying), while states
 connected by the dashed part would be unphysical (entropy-violating).
+\index{entropy condition}
 
 \emph{Try changing the velocities to \((1.9, -1.9)\), and notice that
 the Riemann solution has a state with almost zero depth in the middle.
@@ -3567,6 +3659,7 @@ value can be found computationally via a rootfinding algorithm.
 \subsection{Dam-break problem: correct
 solution}\label{dam-break-problem-correct-solution}}
 
+\index{Dam break problem}
 Below we plot (at last) the correct solution to the dam-break problem,
 involving a 1-rarefaction and a 2-shock. Plot the characteristics and
 notice how each family behaves correctly with respect to the
@@ -3601,6 +3694,7 @@ intermediate value \(u_m\).}
 \hypertarget{dry-states}{%
 \section{Dry states}\label{dry-states}}
 
+\index{dry states}
 The approach just described will yield the correct Riemann solution
 (provided that the rootfinding algorithm converges) in most situations.
 However, it will fail if the solution involves dry (\(h=0\)) states.
@@ -3720,6 +3814,7 @@ non-dry state to \(h=0\).
 \hypertarget{interactive-phase-plane}{%
 \section{Interactive phase plane}\label{interactive-phase-plane}}
 
+\index{phase plane ! for shallow water}
 The live notebook, or
 \hreffoot{http://www.clawpack.org/riemann_book/phase_plane/shallow_water_small.html}{this
 webpage}, provides an interactive view that allows you to see how the
@@ -3729,6 +3824,8 @@ values of \(q_\ell\) and \(q_r\) in the top left plot. The time can also
 be adjusted by dragging the circle in the top right plot.
 
 The Hugoniot loci are plotted in red and the integral curves in blue.
+\index{integral curves}
+\index{Hugoniot loci}
 The portion of each curve that satisfies the entropy condition is
 plotted as a solid line, while the entropy-violating parts are plotted
 as dashed lines. The curves are plotted for both the left and right
@@ -3744,14 +3841,18 @@ labeled \(q_m\).
 Finally, the notebook contains code that generates an interactive plot
 showing the solution to the Riemann problem for arbitrary left and right
 states, including solutions with dry states.
+\index{shallow water equations|)}
 
 \hypertarget{shallow-water-equations-with-a-tracer}{%
 \chapter{Shallow water equations with a
 tracer}\label{shallow-water-equations-with-a-tracer}}
 \label{sec:08-Shallow_tracer}
+
+\index{shallow water with tracer|(}
 We can augment the shallow water equations discussed in
 Chapter \ref{sec:07-Shallow_water} with a quantity \(\phi(x,t)\) that
 measures the concentration of a tracer that is advected with the fluid
+\index{tracer}
 motion (but has no influence on the fluid dynamics). If \(\phi\) is
 measured in units of mass per unit volume (which is really per unit area
 of the vertical cross section in this one-dimensional example), then the
@@ -3760,6 +3861,7 @@ mass per unit length along the \(x\) axis is given by
 coefficient advection equation in advective (nonconservative) form: \[
 \phi_t(x,t) + u(x,t)\phi_x(x,t) = 0.
 \] This equation is also called the ``color equation'', since we can
+\index{color equation}
 think of \(\phi\) as measuring the concentration of a dye that changes
 the color of the water. We will use this interpretation in the plots
 below. By setting the intitial conditions \(\phi(x,0)\) to be piecewise
@@ -3796,6 +3898,7 @@ additional wave appearing in this system (the \emph{tracer} wave) moves
 at the fluid velocity \(u\) and carries only a jump in the tracer
 concentration \(\phi\). It is our first example of what is known as a
 contact discontinuity or \emph{linearly degenerate} wave. Because the
+\index{linear degeneracy}
 fluid velocity is constant across this wave, tracer characteristics
 travel parallel to the wave on either side. Thus this family does not
 admit shock or rarefaction waves. We will see another example of linear
@@ -3825,6 +3928,7 @@ If you wish to examine the Python code for this chapter, see
 \hypertarget{dam-break-problem}{%
 \section{Dam break problem}\label{dam-break-problem}}
 
+\index{Dam break problem}
 Here we plot the solution to the dam break Riemann problem for the
 shallow water equations with the addition of a tracer. The tracer is now
 also taken to be piecewise constant, with light blue representing the
@@ -3871,6 +3975,7 @@ The canonical form (\ref{SW-tracer}) arises by defining \begin{align}
 q & = \begin{pmatrix} h \\ hu \\ h \phi \end{pmatrix}, & f & = \begin{pmatrix} hu \\ hu^2 + \frac{1}{2}gh^2 \\ uh\phi\end{pmatrix}.
 \end{align}\\
 In terms of the conserved quantities, the flux is\\
+\index{flux function ! for SW with tracer}
 \begin{align}
 f(q) & = \begin{pmatrix} q_2 \\ q_2^2/q_1 + \frac{1}{2}g q_1^2 \\ q_3 q_2/q_1 \end{pmatrix}.
 \end{align}\\
@@ -3903,6 +4008,7 @@ constant across the tracer wave. This means that tracer characteristics
 can neither converge nor diverge due to a jump in \(\phi\), but rather
 run parallel to it. Characteristic fields with this property are
 referred to as being \textbf{linearly degenerate} since the Riemann
+\index{linear degeneracy}
 solution to the linear advection equation has this same property, that
 the characteristic speed is independent of changes in the variable that
 jumps across the wave.
@@ -3917,6 +4023,7 @@ by differentiating \(u = hu/h\) with respect to each of the component of
 \end{align} for all values of \(q\). This is the general mathematical
 condition for a linearly degenerate field, since it shows that the
 eigenvalue is unchanged as we move along integral curves of the
+\index{integral curves}
 corresponding eigenvalue.
 
 We will see another example of a linearly degenerate characteristic
@@ -3927,11 +4034,14 @@ general it consists of two nonlinear acoustic waves that can be either
 shock or rarefaction waves, depending on the initial data, and an
 intermediate contact discontinuity that propagates with the intermediate
 fluid velocity, and across which the fluid velocity is constant.
+\index{shallow water with tracer|)}
 
 \hypertarget{the-euler-equations-of-gas-dynamics}{%
 \chapter{The Euler equations of gas
 dynamics}\label{the-euler-equations-of-gas-dynamics}}
 \label{sec:09-Euler}
+
+\index{Euler equations |(}
 In this notebook, we discuss the equations and the structure of the
 exact solution to the Riemann problem. In
 Chapter \ref{sec:13-Euler_approximate} and
@@ -3944,8 +4054,12 @@ solvers.
 In this chapter we study the system of hyperbolic PDEs that governs the
 motions of a compressible gas in the absence of viscosity. These consist
 of conservation laws for \emph{mass, momentum}, and \emph{energy}.
+\index{mass}
+\index{momentum}
+\index{energy}
 Together, they are referred to as the \emph{compressible Euler
 equations}, or simply the Euler equations. Our discussion here is fairly
+\index{Euler equations}
 brief; for much more detail see \cite{fvmhp} or \cite{toro2013riemann}.
 
 \hypertarget{mass-conservation}{%
@@ -3954,6 +4068,7 @@ brief; for much more detail see \cite{fvmhp} or \cite{toro2013riemann}.
 We will use \(\rho(x,t)\) to denote the fluid density and \(u(x,t)\) for
 its velocity. Then the equation for conservation of mass is just the
 familiar \emph{continuity equation}:
+\index{continuity equation}
 
 \[\rho_t + (\rho u)_x = 0.\]
 
@@ -3986,6 +4101,7 @@ density and \(\frac 1 2 gh^2\) is the hydrostatic pressure. For gas
 dynamics, a different expression must be used to compute the pressure
 \(p\) from the conserved quantities. This relation is called the
 \emph{equation of state} of the gas, as discussed further below.
+\index{equation of state}
 
 \hypertarget{energy-conservation}{%
 \subsection{Energy conservation}\label{energy-conservation}}
@@ -4031,6 +4147,7 @@ with respect to the three components of \(q\).
 
 In our discussion of the structure of these equations, it is convenient
 to work with the primitive variables \((\rho, u, p)\) rather than the
+\index{primitive variables}
 conserved variables. The quasilinear form is particularly simple in the
 primitive variables:
 
@@ -4042,6 +4159,7 @@ primitive variables:
 \hypertarget{characteristic-velocities}{%
 \subsection{Characteristic velocities}\label{characteristic-velocities}}
 
+\index{characteristic speeds}
 The eigenvalues of the flux Jacobian \(f'(q)\) for the 1D Euler
 equations are:
 
@@ -4080,9 +4198,11 @@ on \(u\) and that \(u\) does not change as we move in the direction of
 2-integral curves. This is similar to the wave that carries changes in
 the tracer that we considered in Chapter \ref{sec:08-Shallow_tracer}. We
 say this characteristic field is \emph{linearly degenerate}; it admits
+\index{linearly degenerate}
 neither shocks nor rarefactions. In a simple 2-wave, all characteristics
 are parallel. A jump in this family carries a change only in the
 density, and is referred to as a \emph{contact discontinuity}.
+\index{contact discontinuity}
 
 Mathematically, the \(p\)th field is linearly degenerate if
 \begin{align}\label{lindegen}
@@ -4106,12 +4226,14 @@ will be a single shock or rarefaction wave, not the sort of compound
 waves we observed in Chapter \ref{sec:06-Nonconvex_scalar} in the
 nonconvex scalar case. Any characteristic field satisfying
 (\ref{gennonlin}) is said to be \emph{genuinely nonlinear}.
+\index{genuine nonlinearity}
 
 \hypertarget{entropy}{%
 \subsection{Entropy}\label{entropy}}
 
 Another important quantity in gas dynamics is the \emph{specific
 entropy}:
+\index{entropy ! physical}
 
 \[ s = c_v \log(p/\rho^\gamma) + C,\]
 
@@ -4123,11 +4245,14 @@ the pressure remains constant requires a variation in the entropy of the
 gas as well. On the other hand a simple acoustic wave (a continuously
 varying pure 1-wave or 3-wave) has constant entropy throughout the wave;
 the specific entropy is a Riemann invariant for these families.
+\index{Riemann invariants}
 
 A shock wave (either a 1-wave or 3-wave) satisfies the Rankine-Hugoniot
 conditions and exhibits a jump in entropy. To be physically correct, the
+\index{Rankine-Hugoniot condition}
 entropy of the gas must \emph{increase} as gas molecules pass through
 the shock, leading to the \emph{entropy condition} for selecting shock
+\index{entropy condition}
 waves. We have already seen this term used in the context of scalar
 nonlinear equations shallow water flow, even though the entropy
 condition in those cases did not involve the physical entropy.
@@ -4166,6 +4291,8 @@ For a curve passing through \((\rho_0,u_0,p_0)\), we find
 
 Below we plot the projection of some integral curves on the \(p-u\)
 plane.
+\index{integral curves}
+\index{phase plane ! for Euler}
 
 If you wish to examine the Python code for this chapter, see:
 
@@ -4197,6 +4324,7 @@ If you wish to examine the Python code for this chapter, see:
 \section{Rankine-Hugoniot jump
 conditions}\label{rankine-hugoniot-jump-conditions}}
 
+\index{Rankine-Hugoniot condition}
 The Hugoniot loci for 1- and 3-shocks are \begin{align}
     \rho(p) &= \left(\frac{1 + \beta p/p_0}{p/p_\ell + \beta} \right),\\
     u(p) & = u_0 \pm \frac{2c_0}{\sqrt{2\gamma(\gamma-1)}} 
@@ -4224,6 +4352,7 @@ Below we plot the projection of some Hugoniot loci on the \(p-u\) plane.
 As mentioned above, a shock wave is physically relevant only if the
 entropy of the gas increases as the gas particles move through the
 shock. A discontinuity satisfying the Rankine-Hugoniot jump conditions
+\index{entropy condition ! physical}
 that violates this entropy condition (an ``entropy-violating shock'') is
 not physically correct and should be replaced by a rarefaction wave in
 the Riemann solution.
@@ -4231,6 +4360,7 @@ the Riemann solution.
 This physical entropy condition is equivalent to the mathematical
 condition that for a 1-shock to be physically relevant, the
 1-characteristics must impinge on the shock (the Lax entropy condition).
+\index{entropy condition ! Lax}
 If the entropy condition is violated, the 1-characteristics would spread
 out, allowing the insertion of an expansion fan (rarefaction wave).
 
@@ -4238,6 +4368,7 @@ out, allowing the insertion of an expansion fan (rarefaction wave).
 \section{Exact solution of the Riemann
 problem}\label{exact-solution-of-the-riemann-problem}}
 
+\index{Riemann problem ! for Euler}
 The general Riemann solution is found following the steps listed below.
 This is essentially the same procedure used to determine the correct
 solution to the Riemann problem for the shallow water equations in
@@ -4294,6 +4425,7 @@ to that notebook and compare the results.
 \hypertarget{problem-1-sod-shock-tube}{%
 \subsection{Problem 1: Sod shock tube}\label{problem-1-sod-shock-tube}}
 
+\index{shock tube}
 First we consider the classic shock tube problem. The initial condition
 consists of high density and pressure on the left, low density and
 pressure on the right and zero velocity on both sides. The solution is
@@ -4327,6 +4459,7 @@ Riemann problem is slightly more complex.
     { \hspace*{\fill} \\}
     
 Here is a plot of the solution in the phase plane, showing the integral
+\index{phase plane ! for Euler}
 curve connecting the left and middle states, and the Hugoniot locus
 connecting the middle and right states.
 
@@ -4377,6 +4510,7 @@ strength).
 \subsection{Problem 3: Colliding
 flows}\label{problem-3-colliding-flows}}
 
+\index{colliding flow}
 Next, consider the case in which the left and right states are moving
 toward each other. This leads to a pair of shocks, with a high-density,
 high-pressure state in between.
@@ -4409,6 +4543,7 @@ high-pressure state in between.
 \hypertarget{plot-particle-trajectories}{%
 \section{Plot particle trajectories}\label{plot-particle-trajectories}}
 
+\index{particle trajectories}
 In the next plot of the Riemann solution in the \(x\)-\(t\) plane, we
 also plot the trajectories of a set of particles initially distributed
 along the \(x\) axis at \(t=0\), with the spacing inversely proportional
@@ -4442,6 +4577,7 @@ emanating from \(x=0\) at \(t=0\).
 \section{Riemann solution with a colored
 tracer}\label{riemann-solution-with-a-colored-tracer}}
 
+\index{tracer}
 Next we plot the Riemann solution with the density plot also showing an
 advected color to help visualize the flow better. The fluid initially to
 the left of \(x=0\) is colored red and that initially to the right of
@@ -4508,6 +4644,7 @@ adjust the initial data and immediately see the resulting solution.}
 \section{Riemann problems with
 vacuum}\label{riemann-problems-with-vacuum}}
 
+\index{vacuum states}
 A vacuum state (with zero pressure and density) in the Euler equations
 is similar to a dry state (with depth \(h=0\)) in the shallow water
 equations. It can arise in the solution of the Riemann problem in two
@@ -4605,8 +4742,10 @@ Again the phase plane plot may look odd, but since the velocity is
 undefined in the vacuum state the middle state with \(p_m = 0\) actually
 connects to both integral curves, which correspond to the two outgoing
 rarefaction waves.
+\index{Euler equations |)}
 
 \part{Approximate Riemann Solvers}
+\index{approximate Riemann solvers|(}
 
 \hypertarget{introduction-to-approximate-riemann-solvers}{%
 \chapter{Introduction to Approximate Riemann
@@ -4719,6 +4858,7 @@ propagate at entirely the wrong speed.
 \hypertarget{godunovs-method}{%
 \subsection{Godunov's method}\label{godunovs-method}}
 
+\index{Godunov's method}
 Trying to compute numerical approximations to hyperbolic problems with
 strong shock waves is challenging because of the discontinuities in the
 solution --- classical interpretations of
@@ -4870,6 +5010,7 @@ across each wave. Note that in this expression the terms in the sum for
 
 The wave propagation algorithms described in \cite{fvmhp} and
 implemented in Clawpack use a form of Godunov's method based on the sums
+\index{Clawpack}
 appearing in (\ref{Fstar}), called ``fluctuations'', to update the
 neighboring cell averages, rather than the flux difference form. In
 these methods the waves and speeds which are further used (after
@@ -4915,6 +5056,8 @@ small. The idea of a general linearized Riemann solver is to define a
 matrix \(\hat A(q_\ell, q_r)\) that has this property but also makes
 sense as an approximation in the case when \(\|q_\ell-q_r\|\) is not
 small. For many nonlinear systems there is a \emph{Roe linearization}, a
+\index{approximate Riemann solvers ! Roe}
+\index{Roe linearization}
 particular function that works works very well based on ideas introduced
 originally by Roe \cite{Roe1981}. For systems such as the shallow water
 equations or the Euler equations, there are closed-form expressions for
@@ -4925,6 +5068,7 @@ presented in the next few chapters.
 \hypertarget{two-wave-solvers}{%
 \section{Two-wave solvers}\label{two-wave-solvers}}
 
+\index{approximate Riemann solvers! two-wave|(}
 Since the Riemann solution impacts the overall numerical solution only
 based on how it modifies the two neighboring solution values, it seems
 reasonable to consider approximations in which only a single wave
@@ -4961,6 +5105,7 @@ are often even referred to as being ``Riemann-solver-free''.
 \subsection{Lax-Friedrichs (LF) and local-Lax-Friedrichs
 (LLF)}\label{lax-friedrichs-lf-and-local-lax-friedrichs-llf}}
 
+\index{Lax-Friedrichs}
 The simplest such solver is the \emph{Lax-Friedrichs method}, in which
 it is assumed that both waves have the same speed, in opposite
 directions: \[-s_1 = s_2 = a,\] where \(a\ge 0\). Then
@@ -4983,6 +5128,7 @@ damping of slower waves.
 \hypertarget{harten-lax-van-leer-hll}{%
 \subsection{Harten-Lax-van Leer (HLL)}\label{harten-lax-van-leer-hll}}
 
+\index{approximate Riemann solvers ! HLL(E)}
 A less dissipative solver can be obtained by allowing the left- and
 right-going waves to have different speeds. This approach was developed
 in \cite{HLL}. The solution is then determined by
@@ -4997,11 +5143,14 @@ where again the minimum and maximum are taken over all values between
 \(q_r\) and \(q_\ell\). Many refinements of this choice have been
 proposed in the context of systems of equations, some of which will be
 discussed in later chapters.
+\index{approximate Riemann solvers|)}
 
 \hypertarget{an-approximate-solver-for-burgers-equation}{%
 \chapter{An approximate solver for Burgers'
 equation}\label{an-approximate-solver-for-burgers-equation}}
 \label{sec:11-Burgers_approximate}
+\index{approximate Riemann solvers! for Burgers|(}
+\index{Burgers' equation}
 As a first example, we return to the inviscid Burgers' equation that we
 studied in Chapter \ref{sec:04-Burgers}:\\
 \begin{align} \label{burgers}
@@ -5091,6 +5240,7 @@ the second a (non-transonic) rarefaction, and the third a transonic
 rarefaction. In the first row we plot the exact solution in terms of the
 waves in the \(x\)-\(t\) plane; in the second row we plot numerical
 solutions obtained with PyClaw by using a simple first-order method
+\index{PyClaw}
 combined with the Riemann solver.
 
 To examine the Python code for this chapter, see:
@@ -5222,6 +5372,7 @@ so that each of the two waves carries half of the jump.
 \hypertarget{transonic-rarefactions}{%
 \section{Transonic rarefactions}\label{transonic-rarefactions}}
 
+\index{transonic rarefaction}
 In the approaches above, the solution was approximated by a single wave
 traveling either to the left or right. For this scalar problem, this
 ``approximation'' is, in fact, an exact weak solution of the Riemann
@@ -5239,6 +5390,7 @@ modify one or the other. This leads to an incorrect numerical solution
 (on the macroscopic level), as seen in the PyClaw example above. It is
 therefore necessary to modify the Riemann solver, imposing what is known
 as an \emph{entropy fix} in the transonic case.
+\index{entropy fix}
 
 Specifically, we use a solution consisting of two waves, each of which
 captures the net effect of the corresponding rarefaction wave that
@@ -5250,6 +5402,7 @@ appears in the exact solution:
 \end{align}
 
 For Burgers' equation, the value \(q_s=0\) is the \emph{sonic point}
+\index{sonic point}
 satisfying \(f'(q_s)=0\). A transonic rarefaction wave takes the value
 \(Q^*=q_s\) along \(x/t = 0\) and so it makes sense to choose
 \(q_m = 0\). The formulas above then simplify to
@@ -5319,11 +5472,13 @@ is greatly improved over the previous result. There is still a small
 will converge to the correct weak solution as the grid is refined.
 \emph{In the live notebook you can try adjusting \(N\) in the cell above
 to investigate this.}
+\index{approximate Riemann solvers! for Burgers|)}
 
 \hypertarget{approximate-solvers-for-the-shallow-water-equations}{%
 \chapter{Approximate solvers for the shallow water
 equations}\label{approximate-solvers-for-the-shallow-water-equations}}
 \label{sec:12-Shallow_water_approximate}
+\index{approximate Riemann solvers! for SW|(}
 In this chapter we discuss approximate Riemann solvers for the shallow
 water equations:\\
 \begin{align}
@@ -5391,13 +5546,16 @@ Chapter \ref{sec:11-Burgers_approximate}, the third property is the
 defining property of a Roe solver. It ensures that if \(q_r\) and
 \(q_\ell\) can be connected by a single shock (i.e., if they lie on a
 common Hugoniot locus), then the approximate solver will in fact yield
+\index{Hugoniot loci}
 the exact solution -- a single discontinuity propagating at the speed
 given by the Rankine-Hugoniot jump condition. This property is quite
+\index{Rankine-Hugoniot condition}
 useful, since at most points (in space and time) where a shock appears,
 it is an isolated shock corresponding to one characteristic family. Only
 at isolated points in space and time do multiple shocks interact.
 
 Here we derive the Roe solver for the shallow water equations in a
+\index{Roe solver ! for shallow water}
 simple and straightforward way by applying the conservation requirement.
 Roe's original paper \cite{Roe1981} (which dealt with the
 Euler equations rather than the shallow water equations) gave a
@@ -5457,6 +5615,7 @@ where \(\hat{c} = \sqrt{g\hat{h}}\) and \(\delta = q_r -q_\ell\).
 \subsection{Derivation of Roe
 averages}\label{derivation-of-roe-averages}}
 
+\index{Roe linearization}
 It remains only to specify the average state \((\hat{h},\hat{u})\). We
 do so by solving the conservation condition:\\
 \begin{align} \label{SWA:roe_cons}
@@ -5623,9 +5782,11 @@ solution and the exact solution, but this is unimportant since the
 \hypertarget{entropy-fix}{%
 \subsection{Entropy fix}\label{entropy-fix}}
 
+\index{entropy fix}
 As discussed previously, the use of an entropy-violating discontinuity
 in place of a rarefaction can be problematic in the case of a transonic
 rarefaction. For the Roe solver, we can again apply an entropy fix,
+\index{transonic fix}
 splitting the single discontinuity into two waves, to avoid this
 problem. Several different entropy fixes have been proposed; here we
 focus on one that is quite general and effective in practice.
@@ -5765,6 +5926,7 @@ This entropy fix is implemented in the solver below.
 
 An implementation of this solver for use in Clawpack can be found
 \hreffoot{https://github.com/clawpack/riemann/blob/c0a41c664e9a13d35a113409dea92f3c87648d09/src/rp1_shallow_roe_with_efix.f90}{here}.
+\index{Clawpack}
 
 \hypertarget{roe-solver-examples}{%
 \subsection{Roe solver examples}\label{roe-solver-examples}}
@@ -5854,6 +6016,7 @@ transonic because initially the water is all moving to the right.
 \hypertarget{positivity}{%
 \subsection{Positivity}\label{positivity}}
 
+\index{positivity}
 In the shallow water system, it is both physically and mathematically
 essential that the depth remain non-negative. Unfortunately, as the next
 example shows, the Roe solver does not always guarantee this.
@@ -5911,6 +6074,7 @@ initial data.
 \subsection{Derivation and
 implementation}\label{derivation-and-implementation}}
 
+\index{HLL(E) solver}
 Recall that an HLL approximate solver is based on a fictitious solution
 consisting of two waves (discontinuities) with a single intermediate
 state \(q_m\) between them. The waves are thus\\
@@ -5939,6 +6103,8 @@ the choice of wave speeds were subsequently proposed. Here we choose the
 wave speeds based on a suggestion of Einfeldt (originally in the context
 of the Euler equations); the resulting solver is often referred to as an
 HLLE solver.
+\index{HLL(E) solver}
+\index{Einfeldt}
 
 For the shallow water system, the 1-wave speed is always less than or
 equal to the 2-wave speed. If the 1-wave is a rarefaction, then the
@@ -6015,6 +6181,7 @@ speeds are chosen as just described).
 \end{Verbatim}
 
 An implementation of this solver for use in Clawpack can be found
+\index{Clawpack}
 \hreffoot{https://github.com/clawpack/riemann/blob/c0a41c664e9a13d35a113409dea92f3c87648d09/src/rp1_shallow_hlle.f90}{here}.
 
 \hypertarget{examples-using-the-hll-solver}{%
@@ -6054,6 +6221,7 @@ solver}\label{examples-using-the-hll-solver}}
 \end{Verbatim}
 
 Our first example is a standard dam-break problem.
+\index{dam break problem}
 
     \begin{Verbatim}[fontsize=\small,commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}15}]:} \PY{c+c1}{\PYZsh{} Dam\PYZhy{}break example}
@@ -6158,6 +6326,8 @@ where one sees that the integral curve has a local maximum between
 \hypertarget{entropy-and-positivity}{%
 \subsection{Entropy and positivity}\label{entropy-and-positivity}}
 
+\index{entropy condition}
+\index{positivity}
 It can be shown that the HLLE solver always preserves positivity and
 does not require an entropy fix. Both of these properties result in part
 from the fact that the HLLE solver is more diffusive than the Roe
@@ -6224,13 +6394,16 @@ repeatedly, so it is interesting to compare the performance of the HLLE
 and Roe Riemann solvers when they are used within a full discretization
 to solve the shallow water equations. We will do so in the
 Chapter \ref{sec:14-FV_compare}.
+\index{approximate Riemann solvers! for SW|)}
 
 \hypertarget{approximate-solvers-for-the-euler-equations-of-gas-dynamics}{%
 \chapter{Approximate solvers for the Euler equations of gas
 dynamics}\label{approximate-solvers-for-the-euler-equations-of-gas-dynamics}}
 \label{sec:13-Euler_approximate}
+\index{approximate Riemann solvers! for Euler|(}
 In this chapter we discuss approximate solvers for the one-dimensional
 Euler equations:
+\index{Euler equations}
 
 \begin{align}
     \rho_t + (\rho u)_x & = 0 \\
@@ -6259,6 +6432,7 @@ solution, see:
 \hypertarget{roe-solver}{%
 \section{Roe solver}\label{roe-solver}}
 
+\index{Roe solver ! for Euler}
 We first derive a Roe solver for the Euler equations, following the same
 approach as in Chapter \ref{sec:12-Shallow_water_approximate}. Namely,
 we assume that \(\hat{A} = f'(\hat{q})\) for some average state
@@ -6413,6 +6587,7 @@ implement the Roe solver.
 \end{Verbatim}
 
 An implementation of this solver for use in Clawpack can be found
+\index{Clawpack}
 \hreffoot{https://github.com/clawpack/riemann/blob/c0a41c664e9a13d35a113409dea92f3c87648d09/src/rp1_euler_with_efix.f90}{here}.
 Recall that an exact Riemann solver for the Euler equations appears in
 {exact\_solvers/euler.py}.
@@ -6422,6 +6597,7 @@ Recall that an exact Riemann solver for the Euler equations appears in
 
 Let's compare the Roe approximation to the exact solution. As a first
 example, we use the Sod shock tube.
+\index{shock tube}
 
     \begin{Verbatim}[fontsize=\small,commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}4}]:} \PY{k}{def} \PY{n+nf}{compare\PYZus{}solutions}\PY{p}{(}\PY{n}{left\PYZus{}state}\PY{p}{,} \PY{n}{right\PYZus{}state}\PY{p}{,} \PY{n}{solvers}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Exact}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{HLLE}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{p}{:}
@@ -6579,6 +6755,8 @@ difference.
 \subsection{Transonic rarefactions and an entropy
 fix}\label{transonic-rarefactions-and-an-entropy-fix}}
 
+\index{transonic rarefaction}
+\index{entropy fix}
 Here is an example of a Riemann problem whose solution includes a
 transonic 2-rarefaction:
 
@@ -6610,6 +6788,7 @@ into details here.
 \hypertarget{hlle-solver}{%
 \section{HLLE Solver}\label{hlle-solver}}
 
+\index{HLL(E) solver}
 Recall that an HLL solver uses only two waves with a constant state
 between them. The Euler equations are our first example for which the
 number of waves in the true solution is larger than the number of waves
@@ -6707,6 +6886,7 @@ q_m = \frac{f(q_r) - f(q_\ell) - s_2 q_r + s_1 q_\ell}{s_1 - s_2}.
 \subsection{Preservation of
 positivity}\label{preservation-of-positivity}}
 
+\index{positivity}
 Just as we saw in the case of the shallow water equations, the Roe
 solver (or any linearized solver) for the Euler equations fails to
 preserve positivity of the pressure and/or density in some situations.
@@ -6770,11 +6950,13 @@ seen clearly in the example below.
 Again recall that we are only considering a single Riemann solution in
 this chapter. In Chapter \ref{sec:14-FV_compare} we observe the effect
 of using these approximate solvers in a full discretization.
+\index{approximate Riemann solvers! for Euler|)}
 
 \hypertarget{finite-volume-discretizations-with-approximate-riemann-solvers}{%
 \chapter{Finite volume discretizations with approximate Riemann
 solvers}\label{finite-volume-discretizations-with-approximate-riemann-solvers}}
 \label{sec:14-FV_compare}
+\index{finite volume methods|(}
 In the previous few chapters we introduced several approximate Riemann
 solvers for different nonlinear conservation laws and showed some
 comparisons of the approximate solution to a single Riemann problem with
@@ -6786,6 +6968,7 @@ extensions.
 How do these solvers impact the solution accuracy when used within a
 finite volume discretization? To investigate, we will use them within
 \hreffoot{http://www.clawpack.org/pyclaw/}{PyClaw} to solve several test
+\index{PyClaw}
 problems.
 
 In particular, for both the shallow water equations and the Euler
@@ -6804,6 +6987,7 @@ In this chapter we include extensive sections of code in the notebook.
 This is meant to more easily allow the reader to use these as templates
 for setting up other problems in PyClaw. For the code in this chapter we
 use approximate Riemann solvers from PyClaw that can be found in these
+\index{PyClaw}
 files:
 
 \begin{itemize}
@@ -6821,6 +7005,8 @@ We compare results obtained with using the high-resolution wave
 propagation method implemented in PyClaw (with limiters to avoid
 nonphysical oscillations). We compare the results obtained when combined
 with two different approximate Riemann solvers: the Roe solver and HLLE.
+\index{Roe solver}
+\index{HLL(E) solver}
 
     \begin{Verbatim}[fontsize=\small,commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}3}]:} \PY{k+kn}{from} \PY{n+nn}{exact\PYZus{}solvers} \PY{k}{import} \PY{n}{shallow\PYZus{}water} \PY{k}{as} \PY{n}{sw}
@@ -6934,6 +7120,7 @@ initial data.
 \hypertarget{sod-shock-tube-problem}{%
 \subsection{Sod shock tube problem}\label{sod-shock-tube-problem}}
 
+\index{shock tube}
 We first consider the classic shocktube problem proposed by Sod and
 already discussed in Chapter \ref{sec:09-Euler}. This is a particular
 Riemann problem in which the initial velocity is zero on both sides of a
@@ -7133,6 +7320,7 @@ cells is very small.
 \subsection{Woodward-Colella blast
 wave}\label{woodward-colella-blast-wave}}
 
+\index{Woodward-Colella problem}
 Finally, we consider the Woodward-Colella blast wave problem, which is
 discussed for example in \cite{fvmhp}. Here the initial velocity is zero
 and the density is one everywhere. The pressure is \begin{align}
@@ -7249,6 +7437,7 @@ solver is always \emph{better} than the HLL solver. Many factors besides
 accuracy should be considered, including cost and robustness. As we have
 seen the HLL solver is more robust in the presence of near-vacuum
 states.
+\index{finite volume methods|)}
 
 
     % Add a bibliography block to the postdoc
