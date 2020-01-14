@@ -355,10 +355,10 @@ def plot_riemann(states, s, riemann_eval, wave_types=None, t=0.1, ax=None,
             ylims.append(ax[i].get_ylim())
 
     # Make plot boundaries grey
-    for axis in ax:
-        for child in axis.get_children():
-            if isinstance(child, matplotlib.spines.Spine):
-                child.set_color('#dddddd')
+    #for axis in ax:
+    #    for child in axis.get_children():
+    #        if isinstance(child, matplotlib.spines.Spine):
+    #            child.set_color('#dddddd')
 
     # Plot wave characteristics in x-t plane
     plot_waves(pstates, s, riemann_eval, wave_types, t=t, ax=ax[0], color=color,
