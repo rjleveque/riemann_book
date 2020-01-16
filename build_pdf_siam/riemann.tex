@@ -5325,7 +5325,8 @@ To examine the Python code for this chapter, see:
             \PY{n}{plt}\PY{o}{.}\PY{n}{tight\PYZus{}layout}\PY{p}{(}\PY{p}{)}
             \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
             
-        \PY{n}{interact}\PY{p}{(}\PY{n}{plot\PYZus{}frame}\PY{p}{,} \PY{n}{i}\PY{o}{=}\PY{n}{IntSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n+nb}{max}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,} \PY{n}{description}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Frame}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}\PY{p}{;}
+        \PY{n}{interact}\PY{p}{(}\PY{n}{plot\PYZus{}frame}\PY{p}{,} \PY{n}{i}\PY{o}{=}\PY{n}{IntSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n+nb}{max}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,} 
+                 \PY{n}{description}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Frame}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}\PY{p}{;}
 \end{Verbatim}
 
     \begin{center}
@@ -5457,7 +5458,8 @@ entropy fix applied.
             \PY{n}{plt}\PY{o}{.}\PY{n}{tight\PYZus{}layout}\PY{p}{(}\PY{p}{)}
             \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
             
-        \PY{n}{interact}\PY{p}{(}\PY{n}{plot\PYZus{}frame}\PY{p}{,} \PY{n}{i}\PY{o}{=}\PY{n}{IntSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n+nb}{max}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,} \PY{n}{description}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Frame}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}\PY{p}{;}
+        \PY{n}{interact}\PY{p}{(}\PY{n}{plot\PYZus{}frame}\PY{p}{,} \PY{n}{i}\PY{o}{=}\PY{n}{IntSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n+nb}{max}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,} 
+                 \PY{n}{description}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Frame}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}\PY{p}{;}
 \end{Verbatim}
 
     \begin{center}
@@ -5946,18 +5948,20 @@ waves; the left-going one is transonic.
                                 \PY{n}{sw}\PY{o}{.}\PY{n}{exact\PYZus{}riemann\PYZus{}solution}\PY{p}{(}\PY{n}{q\PYZus{}l}\PY{p}{,}\PY{n}{q\PYZus{}r}\PY{p}{)}
             \PY{n}{states}\PY{p}{,} \PY{n}{speeds}\PY{p}{,} \PY{n}{reval}\PY{p}{,} \PY{n}{wave\PYZus{}types} \PY{o}{=} \PYZbs{}
                                 \PY{n}{shallow\PYZus{}water\PYZus{}roe\PYZus{}with\PYZus{}efix}\PY{p}{(}\PY{n}{q\PYZus{}l}\PY{p}{,} \PY{n}{q\PYZus{}r}\PY{p}{)}
-            \PY{n}{no\PYZus{}efix\PYZus{}states}\PY{p}{,} \PY{n}{no\PYZus{}efix\PYZus{}speeds}\PY{p}{,} \PY{n}{no\PYZus{}efix\PYZus{}reval}\PY{p}{,} \PY{n}{no\PYZus{}efix\PYZus{}wave\PYZus{}types} \PY{o}{=} \PYZbs{}
-                                \PY{n}{shallow\PYZus{}water\PYZus{}roe}\PY{p}{(}\PY{n}{q\PYZus{}l}\PY{p}{,} \PY{n}{q\PYZus{}r}\PY{p}{)}
+            \PY{n}{no\PYZus{}efix\PYZus{}states}\PY{p}{,} \PY{n}{no\PYZus{}efix\PYZus{}speeds}\PY{p}{,} \PY{n}{no\PYZus{}efix\PYZus{}reval}\PY{p}{,} 
+                \PY{n}{no\PYZus{}efix\PYZus{}wave\PYZus{}types} \PY{o}{=} \PY{n}{shallow\PYZus{}water\PYZus{}roe}\PY{p}{(}\PY{n}{q\PYZus{}l}\PY{p}{,} \PY{n}{q\PYZus{}r}\PY{p}{)}
         
             \PY{n}{plot\PYZus{}function} \PY{o}{=} \PYZbs{}
                 \PY{n}{rt}\PY{o}{.}\PY{n}{make\PYZus{}plot\PYZus{}function}\PY{p}{(}\PY{p}{[}\PY{n}{ex\PYZus{}states}\PY{p}{,} \PY{n}{no\PYZus{}efix\PYZus{}states}\PY{p}{,} \PY{n}{states}\PY{p}{]}\PY{p}{,}
                                       \PY{p}{[}\PY{n}{ex\PYZus{}speeds}\PY{p}{,} \PY{n}{no\PYZus{}efix\PYZus{}speeds}\PY{p}{,} \PY{n}{speeds}\PY{p}{]}\PY{p}{,}
                                       \PY{p}{[}\PY{n}{ex\PYZus{}reval}\PY{p}{,} \PY{n}{no\PYZus{}efix\PYZus{}reval}\PY{p}{,} \PY{n}{reval}\PY{p}{]}\PY{p}{,}
-                                      \PY{p}{[}\PY{n}{ex\PYZus{}wave\PYZus{}types}\PY{p}{,} \PY{n}{no\PYZus{}efix\PYZus{}wave\PYZus{}types}\PY{p}{,} \PY{n}{wave\PYZus{}types}\PY{p}{]}\PY{p}{,}
+                                      \PY{p}{[}\PY{n}{ex\PYZus{}wave\PYZus{}types}\PY{p}{,} \PY{n}{no\PYZus{}efix\PYZus{}wave\PYZus{}types}\PY{p}{,} 
+                                       \PY{n}{wave\PYZus{}types}\PY{p}{]}\PY{p}{,}
                                       \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Exact}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Roe w/o fix}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Roe with fix}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}
                                       \PY{n}{layout}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{vertical}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
                                       \PY{n}{variable\PYZus{}names}\PY{o}{=}\PY{n}{sw}\PY{o}{.}\PY{n}{conserved\PYZus{}variables}\PY{p}{)}
-            \PY{n}{interact}\PY{p}{(}\PY{n}{plot\PYZus{}function}\PY{p}{,} \PY{n}{t}\PY{o}{=}\PY{n}{widgets}\PY{o}{.}\PY{n}{FloatSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,}\PY{n+nb}{max}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{9}\PY{p}{,}\PY{n}{step}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{value}\PY{o}{=}\PY{l+m+mf}{0.4}\PY{p}{)}\PY{p}{)}\PY{p}{;}
+            \PY{n}{interact}\PY{p}{(}\PY{n}{plot\PYZus{}function}\PY{p}{,} 
+                     \PY{n}{t}\PY{o}{=}\PY{n}{widgets}\PY{o}{.}\PY{n}{FloatSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,}\PY{n+nb}{max}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{9}\PY{p}{,}\PY{n}{step}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{value}\PY{o}{=}\PY{l+m+mf}{0.4}\PY{p}{)}\PY{p}{)}\PY{p}{;}
             \PY{k}{return} \PY{n}{q\PYZus{}l}\PY{p}{,} \PY{n}{q\PYZus{}r}\PY{p}{,} \PY{n}{states}\PY{p}{,} \PY{n}{no\PYZus{}efix\PYZus{}states}
         
         \PY{n}{q\PYZus{}l}\PY{p}{,} \PY{n}{q\PYZus{}r}\PY{p}{,} \PY{n}{states}\PY{p}{,} \PY{n}{no\PYZus{}efix\PYZus{}states} \PY{o}{=} \PY{n}{compare\PYZus{}efix}\PY{p}{(}\PY{n}{h\PYZus{}l}\PY{p}{,}\PY{n}{u\PYZus{}l}\PY{p}{,}\PY{n}{h\PYZus{}r}\PY{p}{,}\PY{n}{u\PYZus{}r}\PY{p}{)}
@@ -6036,9 +6040,11 @@ example shows, the Roe solver does not always guarantee this.
              \PY{n}{rt}\PY{o}{.}\PY{n}{make\PYZus{}plot\PYZus{}function}\PY{p}{(}\PY{p}{[}\PY{n}{ex\PYZus{}states}\PY{p}{,} \PY{n}{states}\PY{p}{]}\PY{p}{,}
                                    \PY{p}{[}\PY{n}{ex\PYZus{}speeds}\PY{p}{,} \PY{n}{speeds}\PY{p}{]}\PY{p}{,}
                                    \PY{p}{[}\PY{n}{ex\PYZus{}reval}\PY{p}{,} \PY{n}{reval}\PY{p}{]}\PY{p}{,}
-                                   \PY{p}{[}\PY{n}{ex\PYZus{}wave\PYZus{}types}\PY{p}{,} \PY{n}{wave\PYZus{}types}\PY{p}{]}\PY{p}{,}
+                                   \PY{p}{[}\PY{n}{ex\PYZus{}wave\PYZus{}types}\PY{p}{,} 
+                                   \PY{n}{wave\PYZus{}types}\PY{p}{]}\PY{p}{,}
                                    \PY{n}{variable\PYZus{}names}\PY{o}{=}\PY{n}{sw}\PY{o}{.}\PY{n}{conserved\PYZus{}variables}\PY{p}{)}
-         \PY{n}{interact}\PY{p}{(}\PY{n}{plot\PYZus{}function}\PY{p}{,} \PY{n}{t}\PY{o}{=}\PY{n}{widgets}\PY{o}{.}\PY{n}{FloatSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,}\PY{n+nb}{max}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{9}\PY{p}{,}\PY{n}{step}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{value}\PY{o}{=}\PY{l+m+mf}{0.4}\PY{p}{)}\PY{p}{)}\PY{p}{;}
+         \PY{n}{interact}\PY{p}{(}\PY{n}{plot\PYZus{}function}\PY{p}{,} 
+                  \PY{n}{t}\PY{o}{=}\PY{n}{widgets}\PY{o}{.}\PY{n}{FloatSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,}\PY{n+nb}{max}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{9}\PY{p}{,}\PY{n}{step}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{value}\PY{o}{=}\PY{l+m+mf}{0.4}\PY{p}{)}\PY{p}{)}\PY{p}{;}
 \end{Verbatim}
 
     \begin{center}
@@ -6240,7 +6246,8 @@ Our first example is a standard dam-break problem.
     { \hspace*{\fill} \\}
     
     \begin{Verbatim}[fontsize=\small,commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}16}]:} \PY{n}{sw}\PY{o}{.}\PY{n}{phase\PYZus{}plane\PYZus{}plot}\PY{p}{(}\PY{n}{q\PYZus{}l}\PY{p}{,}\PY{n}{q\PYZus{}r}\PY{p}{,}\PY{n}{g}\PY{o}{=}\PY{l+m+mf}{1.}\PY{p}{,}\PY{n}{y\PYZus{}axis}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{u}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{approx\PYZus{}states}\PY{o}{=}\PY{n}{states}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{hll}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}16}]:} \PY{n}{sw}\PY{o}{.}\PY{n}{phase\PYZus{}plane\PYZus{}plot}\PY{p}{(}\PY{n}{q\PYZus{}l}\PY{p}{,}\PY{n}{q\PYZus{}r}\PY{p}{,}\PY{n}{g}\PY{o}{=}\PY{l+m+mf}{1.}\PY{p}{,}\PY{n}{y\PYZus{}axis}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{u}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                             \PY{n}{approx\PYZus{}states}\PY{o}{=}\PY{n}{states}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{hll}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
 \end{Verbatim}
 
     \begin{center}
@@ -6297,7 +6304,8 @@ The final example includes a transonic rarefaction.
     { \hspace*{\fill} \\}
     
     \begin{Verbatim}[fontsize=\small,commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}20}]:} \PY{n}{sw}\PY{o}{.}\PY{n}{phase\PYZus{}plane\PYZus{}plot}\PY{p}{(}\PY{n}{q\PYZus{}l}\PY{p}{,}\PY{n}{q\PYZus{}r}\PY{p}{,}\PY{n}{g}\PY{o}{=}\PY{l+m+mf}{1.}\PY{p}{,}\PY{n}{y\PYZus{}axis}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{u}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{approx\PYZus{}states}\PY{o}{=}\PY{n}{states}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{hll}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}20}]:} \PY{n}{sw}\PY{o}{.}\PY{n}{phase\PYZus{}plane\PYZus{}plot}\PY{p}{(}\PY{n}{q\PYZus{}l}\PY{p}{,}\PY{n}{q\PYZus{}r}\PY{p}{,}\PY{n}{g}\PY{o}{=}\PY{l+m+mf}{1.}\PY{p}{,}\PY{n}{y\PYZus{}axis}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{u}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                             \PY{n}{approx\PYZus{}states}\PY{o}{=}\PY{n}{states}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{hll}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
 \end{Verbatim}
 
     \begin{center}
@@ -6315,7 +6323,8 @@ where one sees that the integral curve has a local maximum between
 \(q_\ell\) and \(q_m\):
 
     \begin{Verbatim}[fontsize=\small,commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}21}]:} \PY{n}{sw}\PY{o}{.}\PY{n}{phase\PYZus{}plane\PYZus{}plot}\PY{p}{(}\PY{n}{q\PYZus{}l}\PY{p}{,}\PY{n}{q\PYZus{}r}\PY{p}{,}\PY{n}{g}\PY{o}{=}\PY{l+m+mf}{1.}\PY{p}{,}\PY{n}{y\PYZus{}axis}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{hu}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{approx\PYZus{}states}\PY{o}{=}\PY{n}{states}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{hll}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}21}]:} \PY{n}{sw}\PY{o}{.}\PY{n}{phase\PYZus{}plane\PYZus{}plot}\PY{p}{(}\PY{n}{q\PYZus{}l}\PY{p}{,}\PY{n}{q\PYZus{}r}\PY{p}{,}\PY{n}{g}\PY{o}{=}\PY{l+m+mf}{1.}\PY{p}{,}\PY{n}{y\PYZus{}axis}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{hu}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                             \PY{n}{approx\PYZus{}states}\PY{o}{=}\PY{n}{states}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{hll}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
 \end{Verbatim}
 
     \begin{center}
@@ -7011,7 +7020,8 @@ with two different approximate Riemann solvers: the Roe solver and HLLE.
     \begin{Verbatim}[fontsize=\small,commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}3}]:} \PY{k+kn}{from} \PY{n+nn}{exact\PYZus{}solvers} \PY{k}{import} \PY{n}{shallow\PYZus{}water} \PY{k}{as} \PY{n}{sw}
         \PY{k+kn}{from} \PY{n+nn}{clawpack} \PY{k}{import} \PY{n}{riemann}
-        \PY{k+kn}{from} \PY{n+nn}{clawpack}\PY{n+nn}{.}\PY{n+nn}{riemann}\PY{n+nn}{.}\PY{n+nn}{shallow\PYZus{}roe\PYZus{}with\PYZus{}efix\PYZus{}1D\PYZus{}constants} \PY{k}{import} \PY{n}{depth}\PY{p}{,} \PY{n}{momentum}\PY{p}{,} \PY{n}{num\PYZus{}eqn}
+        \PY{k+kn}{from} \PY{n+nn}{clawpack}\PY{n+nn}{.}\PY{n+nn}{riemann}\PY{n+nn}{.}\PY{n+nn}{shallow\PYZus{}roe\PYZus{}with\PYZus{}efix\PYZus{}1D\PYZus{}constants} \PY{k}{import} \PYZbs{}
+            \PY{n}{depth}\PY{p}{,} \PY{n}{momentum}\PY{p}{,} \PY{n}{num\PYZus{}eqn}
         
         \PY{k}{def} \PY{n+nf}{setup}\PY{p}{(}\PY{n}{riemann\PYZus{}solver}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{roe}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{N}\PY{o}{=}\PY{l+m+mi}{20}\PY{p}{,}\PY{n}{IC}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{dam\PYZhy{}break}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{:}
         
@@ -7092,8 +7102,8 @@ with two different approximate Riemann solvers: the Roe solver and HLLE.
             \PY{k}{for} \PY{n}{j}\PY{p}{,} \PY{n}{variable} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{variables}\PY{p}{)}\PY{p}{:}
                 \PY{n}{ax}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{set\PYZus{}ylim}\PY{p}{(}\PY{n}{ylims}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{p}{)}
                 \PY{n}{ax}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xc\PYZus{}exact\PYZus{}sw}\PY{p}{,}\PY{n}{reval\PYZus{}sw}\PY{p}{(}\PY{n}{xc\PYZus{}exact\PYZus{}sw}\PY{o}{/}\PY{p}{(}\PY{n}{t}\PY{o}{+}\PY{l+m+mf}{1.e\PYZhy{}16}\PY{p}{)}\PY{p}{)}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}k}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{lw}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
-                \PY{n}{ax}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xc\PYZus{}sw}\PY{p}{,} \PY{n}{hlle\PYZus{}sw}\PY{o}{.}\PY{n}{frames}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{q}\PY{p}{[}\PY{n}{variable}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}ob}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{lw}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,}\PY{n}{markersize}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{)}
-                \PY{n}{ax}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xc\PYZus{}sw}\PY{p}{,} \PY{n}{roe\PYZus{}sw}\PY{o}{.}\PY{n}{frames}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{q}\PY{p}{[}\PY{n}{variable}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}or}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{lw}\PY{o}{=}\PY{l+m+mf}{0.5}\PY{p}{,}\PY{n}{markersize}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{)}
+                \PY{n}{ax}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xc\PYZus{}sw}\PY{p}{,} \PY{n}{hlle\PYZus{}sw}\PY{o}{.}\PY{n}{frames}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{q}\PY{p}{[}\PY{n}{variable}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}ob}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{lw}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,}\PY{n}{ms}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{)}
+                \PY{n}{ax}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xc\PYZus{}sw}\PY{p}{,} \PY{n}{roe\PYZus{}sw}\PY{o}{.}\PY{n}{frames}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{q}\PY{p}{[}\PY{n}{variable}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}or}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{lw}\PY{o}{=}\PY{l+m+mf}{0.5}\PY{p}{,}\PY{n}{ms}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{)}
                 \PY{n}{ax}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Exact}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{HLLE}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Roe}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{loc}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{best}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
                 \PY{n}{ax}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{n}{ylabel}\PY{o}{=}\PY{n}{variablenames}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{p}{)}
             \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
@@ -7220,7 +7230,8 @@ around discontinuities and/or smears them out.
         
         \PY{c+c1}{\PYZsh{} Exact solution}
         \PY{n}{xc\PYZus{}exact\PYZus{}st} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2000}\PY{p}{)}
-        \PY{n}{states\PYZus{}st}\PY{p}{,} \PY{n}{speeds\PYZus{}st}\PY{p}{,} \PY{n}{reval\PYZus{}st}\PY{p}{,} \PY{n}{wave\PYZus{}types\PYZus{}st} \PY{o}{=} \PY{n}{euler}\PY{o}{.}\PY{n}{exact\PYZus{}riemann\PYZus{}solution}\PY{p}{(}\PY{n}{prim\PYZus{}l}\PY{p}{,} \PY{n}{prim\PYZus{}r}\PY{p}{)}
+        \PY{n}{states\PYZus{}st}\PY{p}{,} \PY{n}{speeds\PYZus{}st}\PY{p}{,} \PY{n}{reval\PYZus{}st}\PY{p}{,} \PY{n}{wave\PYZus{}types\PYZus{}st} \PY{o}{=} \PYZbs{}
+            \PY{n}{euler}\PY{o}{.}\PY{n}{exact\PYZus{}riemann\PYZus{}solution}\PY{p}{(}\PY{n}{prim\PYZus{}l}\PY{p}{,} \PY{n}{prim\PYZus{}r}\PY{p}{)}
         
         \PY{k}{def} \PY{n+nf}{plot\PYZus{}frame}\PY{p}{(}\PY{n}{i}\PY{p}{)}\PY{p}{:}
             \PY{n}{t} \PY{o}{=} \PY{n}{roe\PYZus{}st}\PY{o}{.}\PY{n}{frames}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{t}
@@ -7235,13 +7246,14 @@ around discontinuities and/or smears them out.
             \PY{k}{for} \PY{n}{j}\PY{p}{,} \PY{n}{variable} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{variables}\PY{p}{)}\PY{p}{:}
                 \PY{n}{ax}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{set\PYZus{}ylim}\PY{p}{(}\PY{n}{ylims}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{p}{)}
                 \PY{n}{ax}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xc\PYZus{}exact\PYZus{}st}\PY{p}{,}\PY{n}{reval\PYZus{}st}\PY{p}{(}\PY{n}{xc\PYZus{}exact\PYZus{}st}\PY{o}{/}\PY{p}{(}\PY{n}{t}\PY{o}{+}\PY{l+m+mf}{1.e\PYZhy{}16}\PY{p}{)}\PY{p}{)}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}k}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{lw}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
-                \PY{n}{ax}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xc\PYZus{}st}\PY{p}{,}\PY{n}{hll\PYZus{}st}\PY{o}{.}\PY{n}{frames}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{q}\PY{p}{[}\PY{n}{variable}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}ob}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{lw}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,}\PY{n}{markersize}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{)}
-                \PY{n}{ax}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xc\PYZus{}st}\PY{p}{,}\PY{n}{roe\PYZus{}st}\PY{o}{.}\PY{n}{frames}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{q}\PY{p}{[}\PY{n}{variable}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}or}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{lw}\PY{o}{=}\PY{l+m+mf}{0.5}\PY{p}{,}\PY{n}{markersize}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{)}
+                \PY{n}{ax}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xc\PYZus{}st}\PY{p}{,}\PY{n}{hll\PYZus{}st}\PY{o}{.}\PY{n}{frames}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{q}\PY{p}{[}\PY{n}{variable}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}ob}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{lw}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,}\PY{n}{ms}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{)}
+                \PY{n}{ax}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xc\PYZus{}st}\PY{p}{,}\PY{n}{roe\PYZus{}st}\PY{o}{.}\PY{n}{frames}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{q}\PY{p}{[}\PY{n}{variable}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}or}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{lw}\PY{o}{=}\PY{l+m+mf}{0.5}\PY{p}{,}\PY{n}{ms}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{)}
                 \PY{n}{ax}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Exact}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{HLL}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Roe}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{loc}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{best}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
                 \PY{n}{ax}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{n}{ylabel}\PY{o}{=}\PY{n}{variablenames}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{p}{)}
             \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
             
-        \PY{n}{interact}\PY{p}{(}\PY{n}{plot\PYZus{}frame}\PY{p}{,} \PY{n}{i}\PY{o}{=}\PY{n}{widgets}\PY{o}{.}\PY{n}{IntSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n+nb}{max}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,} \PY{n}{description}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Frame}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}\PY{p}{;}
+        \PY{n}{interact}\PY{p}{(}\PY{n}{plot\PYZus{}frame}\PY{p}{,} \PY{n}{i}\PY{o}{=}\PY{n}{widgets}\PY{o}{.}\PY{n}{IntSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n+nb}{max}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,} 
+                 \PY{n}{description}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Frame}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}\PY{p}{;}
 \end{Verbatim}
 
     \begin{center}
@@ -7272,16 +7284,19 @@ scheme.
         \PY{n}{q\PYZus{}l} \PY{o}{=} \PY{n}{euler}\PY{o}{.}\PY{n}{conservative\PYZus{}to\PYZus{}primitive}\PY{p}{(}\PY{o}{*}\PY{n}{prim\PYZus{}l}\PY{p}{)}
         \PY{n}{q\PYZus{}r} \PY{o}{=} \PY{n}{euler}\PY{o}{.}\PY{n}{conservative\PYZus{}to\PYZus{}primitive}\PY{p}{(}\PY{o}{*}\PY{n}{prim\PYZus{}r}\PY{p}{)}
         
-        \PY{n}{roe\PYZus{}weno} \PY{o}{=} \PY{n}{shocktube}\PY{p}{(}\PY{n}{q\PYZus{}l}\PY{p}{,}\PY{n}{q\PYZus{}r}\PY{p}{,}\PY{n}{N}\PY{o}{=}\PY{n}{N}\PY{p}{,}\PY{n}{riemann\PYZus{}solver}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Roe}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{solver\PYZus{}type}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{sharpclaw}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{roe\PYZus{}weno} \PY{o}{=} \PY{n}{shocktube}\PY{p}{(}\PY{n}{q\PYZus{}l}\PY{p}{,}\PY{n}{q\PYZus{}r}\PY{p}{,}\PY{n}{N}\PY{o}{=}\PY{n}{N}\PY{p}{,}\PY{n}{riemann\PYZus{}solver}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Roe}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                             \PY{n}{solver\PYZus{}type}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{sharpclaw}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
         \PY{n}{roe\PYZus{}weno}\PY{o}{.}\PY{n}{run}\PY{p}{(}\PY{p}{)}
-        \PY{n}{hll\PYZus{}weno} \PY{o}{=} \PY{n}{shocktube}\PY{p}{(}\PY{n}{q\PYZus{}l}\PY{p}{,}\PY{n}{q\PYZus{}r}\PY{p}{,}\PY{n}{N}\PY{o}{=}\PY{n}{N}\PY{p}{,}\PY{n}{riemann\PYZus{}solver}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{HLL}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{solver\PYZus{}type}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{sharpclaw}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{hll\PYZus{}weno} \PY{o}{=} \PY{n}{shocktube}\PY{p}{(}\PY{n}{q\PYZus{}l}\PY{p}{,}\PY{n}{q\PYZus{}r}\PY{p}{,}\PY{n}{N}\PY{o}{=}\PY{n}{N}\PY{p}{,}\PY{n}{riemann\PYZus{}solver}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{HLL}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                             \PY{n}{solver\PYZus{}type}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{sharpclaw}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
         \PY{n}{hll\PYZus{}weno}\PY{o}{.}\PY{n}{run}\PY{p}{(}\PY{p}{)}
         
         \PY{n}{xc\PYZus{}weno} \PY{o}{=} \PY{n}{roe\PYZus{}weno}\PY{o}{.}\PY{n}{solution}\PY{o}{.}\PY{n}{state}\PY{o}{.}\PY{n}{grid}\PY{o}{.}\PY{n}{p\PYZus{}centers}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
         
         \PY{c+c1}{\PYZsh{} Exact solution}
         \PY{n}{xc\PYZus{}exact\PYZus{}weno} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2000}\PY{p}{)}
-        \PY{n}{states\PYZus{}weno}\PY{p}{,} \PY{n}{speeds\PYZus{}weno}\PY{p}{,} \PY{n}{reval\PYZus{}weno}\PY{p}{,} \PY{n}{wave\PYZus{}types\PYZus{}weno} \PY{o}{=} \PY{n}{euler}\PY{o}{.}\PY{n}{exact\PYZus{}riemann\PYZus{}solution}\PY{p}{(}\PY{n}{prim\PYZus{}l}\PY{p}{,} \PY{n}{prim\PYZus{}r}\PY{p}{)}
+        \PY{n}{states\PYZus{}weno}\PY{p}{,} \PY{n}{speeds\PYZus{}weno}\PY{p}{,} \PY{n}{reval\PYZus{}weno}\PY{p}{,} \PY{n}{wave\PYZus{}types\PYZus{}weno} \PY{o}{=} 
+            \PY{n}{euler}\PY{o}{.}\PY{n}{exact\PYZus{}riemann\PYZus{}solution}\PY{p}{(}\PY{n}{prim\PYZus{}l}\PY{p}{,} \PY{n}{prim\PYZus{}r}\PY{p}{)}
         
         \PY{k}{def} \PY{n+nf}{plot\PYZus{}frame}\PY{p}{(}\PY{n}{i}\PY{p}{)}\PY{p}{:}
             \PY{n}{t} \PY{o}{=} \PY{n}{roe\PYZus{}weno}\PY{o}{.}\PY{n}{frames}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{t}
@@ -7295,14 +7310,16 @@ scheme.
             \PY{n}{ax}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{n}{xlabel} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
             \PY{k}{for} \PY{n}{j}\PY{p}{,} \PY{n}{variable} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{variables}\PY{p}{)}\PY{p}{:}
                 \PY{n}{ax}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{set\PYZus{}ylim}\PY{p}{(}\PY{n}{ylims}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{p}{)}
-                \PY{n}{ax}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xc\PYZus{}exact\PYZus{}weno}\PY{p}{,}\PY{n}{reval\PYZus{}weno}\PY{p}{(}\PY{n}{xc\PYZus{}exact\PYZus{}weno}\PY{o}{/}\PY{p}{(}\PY{n}{t}\PY{o}{+}\PY{l+m+mf}{1.e\PYZhy{}16}\PY{p}{)}\PY{p}{)}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}k}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{lw}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
-                \PY{n}{ax}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xc\PYZus{}weno}\PY{p}{,}\PY{n}{hll\PYZus{}weno}\PY{o}{.}\PY{n}{frames}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{q}\PY{p}{[}\PY{n}{variable}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}ob}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{lw}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,}\PY{n}{markersize}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{)}
-                \PY{n}{ax}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xc\PYZus{}weno}\PY{p}{,}\PY{n}{roe\PYZus{}weno}\PY{o}{.}\PY{n}{frames}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{q}\PY{p}{[}\PY{n}{variable}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}or}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{lw}\PY{o}{=}\PY{l+m+mf}{0.5}\PY{p}{,}\PY{n}{markersize}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{)}
+                \PY{n}{ax}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xc\PYZus{}exact\PYZus{}weno}\PY{p}{,}
+                           \PY{n}{reval\PYZus{}weno}\PY{p}{(}\PY{n}{xc\PYZus{}exact\PYZus{}weno}\PY{o}{/}\PY{p}{(}\PY{n}{t}\PY{o}{+}\PY{l+m+mf}{1.e\PYZhy{}16}\PY{p}{)}\PY{p}{)}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}k}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{lw}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+                \PY{n}{ax}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xc\PYZus{}weno}\PY{p}{,}\PY{n}{hll\PYZus{}weno}\PY{o}{.}\PY{n}{frames}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{q}\PY{p}{[}\PY{n}{variable}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}ob}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{lw}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,}\PY{n}{ms}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{)}
+                \PY{n}{ax}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{xc\PYZus{}weno}\PY{p}{,}\PY{n}{roe\PYZus{}weno}\PY{o}{.}\PY{n}{frames}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{.}\PY{n}{q}\PY{p}{[}\PY{n}{variable}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}or}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{lw}\PY{o}{=}\PY{l+m+mf}{0.5}\PY{p}{,}\PY{n}{ms}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{)}
                 \PY{n}{ax}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Exact}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{HLL}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Roe}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{loc}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{best}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
                 \PY{n}{ax}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{n}{ylabel}\PY{o}{=}\PY{n}{variablenames}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{p}{)}
             \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
             
-        \PY{n}{interact}\PY{p}{(}\PY{n}{plot\PYZus{}frame}\PY{p}{,} \PY{n}{i}\PY{o}{=}\PY{n}{widgets}\PY{o}{.}\PY{n}{IntSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n+nb}{max}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,}  \PY{n}{description}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Frame}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}\PY{p}{;}
+        \PY{n}{interact}\PY{p}{(}\PY{n}{plot\PYZus{}frame}\PY{p}{,} \PY{n}{i}\PY{o}{=}\PY{n}{widgets}\PY{o}{.}\PY{n}{IntSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n+nb}{max}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,}  
+                 \PY{n}{description}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Frame}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}\PY{p}{;}
 \end{Verbatim}
 
     \begin{center}
