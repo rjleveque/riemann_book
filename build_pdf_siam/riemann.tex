@@ -5927,7 +5927,7 @@ This entropy fix is implemented in the solver below.
 \end{Verbatim}
 
 An implementation of this solver for use in Clawpack can be found
-\hreffoot{https://github.com/clawpack/riemann/blob/c0a41c664e9a13d35a113409dea92f3c87648d09/src/rp1_shallow_roe_with_efix.f90}{here}.
+\hreffoot{https://github.com/clawpack/riemann/blob/master/src/rp1_shallow_roe_with_efix.f90}{here}.
 \index{Clawpack}
 
 \hypertarget{roe-solver-examples}{%
@@ -6188,7 +6188,7 @@ speeds are chosen as just described).
 
 An implementation of this solver for use in Clawpack can be found
 \index{Clawpack}
-\hreffoot{https://github.com/clawpack/riemann/blob/c0a41c664e9a13d35a113409dea92f3c87648d09/src/rp1_shallow_hlle.f90}{here}.
+\hreffoot{https://github.com/clawpack/riemann/blob/master/src/rp1_shallow_hlle.f90}{here}.
 
 \hypertarget{examples-using-the-hll-solver}{%
 \subsection{Examples using the HLL
@@ -6597,7 +6597,7 @@ implement the Roe solver.
 
 An implementation of this solver for use in Clawpack can be found
 \index{Clawpack}
-\hreffoot{https://github.com/clawpack/riemann/blob/c0a41c664e9a13d35a113409dea92f3c87648d09/src/rp1_euler_with_efix.f90}{here}.
+\hreffoot{https://github.com/clawpack/riemann/blob/master/src/rp1_euler_with_efix.f90}{here}.
 Recall that an exact Riemann solver for the Euler equations appears in
 {exact\_solvers/euler.py}.
 
@@ -7437,7 +7437,8 @@ interact with each other.
                 \PY{n}{ax}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{n}{ylabel}\PY{o}{=}\PY{n}{variablenames}\PY{p}{[}\PY{n}{j}\PY{p}{]}\PY{p}{)}
             \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
             
-        \PY{n}{interact}\PY{p}{(}\PY{n}{plot\PYZus{}frame}\PY{p}{,} \PY{n}{i}\PY{o}{=}\PY{n}{widgets}\PY{o}{.}\PY{n}{IntSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n+nb}{max}\PY{o}{=}\PY{l+m+mi}{30}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{,} \PY{n}{description}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Frame}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}\PY{p}{;}
+        \PY{n}{interact}\PY{p}{(}\PY{n}{plot\PYZus{}frame}\PY{p}{,} \PY{n}{i}\PY{o}{=}\PY{n}{widgets}\PY{o}{.}\PY{n}{IntSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n+nb}{max}\PY{o}{=}\PY{l+m+mi}{30}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{,} 
+            \PY{n}{description}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Frame}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}\PY{p}{;}
 \end{Verbatim}
 
     \begin{center}
