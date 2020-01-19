@@ -1152,6 +1152,7 @@ In order to solve the conservation law above, we need an expression for
 the flux, \(f\). The rate of flow is just density times velocity:
 \(f=u q\). Thus we obtain the \textbf{continuity equation}\\
 \[q_t + (uq)_x = 0.\]
+\index{flux function!for advection equation}
 \index{continuity equation}
 
 In general, we need another equation to determine the velocity
@@ -1328,6 +1329,7 @@ system \(q_t+f(q)_x=0\) with\\
 q & = \begin{bmatrix} \rho \\ \rho u \end{bmatrix} & 
 f(q) & = \begin{bmatrix} \rho u \\ \rho u^2 + P(\rho) \end{bmatrix}
 \end{align*}\\
+\index{flux function!for acoustics equations}
 We will make use of the quasilinear form of a hyperbolic system:
 \[q_t + f'(q) q_x = 0.\]\\
 Here \(f'(q)\) denotes the Jacobian of the flux \(f\) with respect to
@@ -1342,6 +1344,7 @@ variables \((q_1,q_2) = (\rho, \rho u)\):\\
 f(q) & = \begin{bmatrix} q_2 \\ q_2^2/q_1 + P(q_1) \end{bmatrix}.
 \end{align}
 
+\index{Jacobian matrix}
 Now we can differentiate to find the flux Jacobian:\\
 \begin{align*}
 f'(q) & = \begin{bmatrix} \partial f_1/\partial q_1 & \partial f_1/\partial q_2 \\
@@ -1510,11 +1513,11 @@ Since \(R\Delta w = \Delta q\), we have\\
 \end{align*}\\
 Thus the solution has the structure depicted below.
 
-\begin{figure}
-\centering
+%\begin{figure}
+%\centering
 \includegraphics{./figures/acoustics_xt_plane.png}
-\caption{Fig 4.1: Structure of the Riemann solution for acoustics.}
-\end{figure}
+%\caption{Fig 4.1: Structure of the Riemann solution for acoustics.}
+%\end{figure}
 
 The three constant states are related by the jumps:\\
 \begin{align}
@@ -1600,6 +1603,8 @@ In the live notebook, the cell below allows you to interactively adjust
 the initial conditions the material parameters as well as the plot
 range, so that you can explore how the structure of the solution in the
 phase plane is affected by these quantities.
+
+\newpage
 
     \begin{Verbatim}[fontsize=\small,commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}9}]:} \PY{n}{acoustics\PYZus{}demos}\PY{o}{.}\PY{n}{interactive\PYZus{}phase\PYZus{}plane}\PY{p}{(}\PY{n}{ql}\PY{p}{,}\PY{n}{qr}\PY{p}{,}\PY{n}{rho}\PY{p}{,}\PY{n}{bulk}\PY{p}{)}
@@ -2309,6 +2314,7 @@ Here is a plot of this velocity function:
 
 Combining the two equations above, our conservation law says
 \[\rho_t + (\rho (1-\rho))_x = 0\] with the flux function
+\index{flux function!for traffic flow}
 \[f(\rho) = \rho(1-\rho)\] giving the rate of flow of cars. Notice how
 the flux is zero when there are no cars (\(\rho=0\)) and also when the
 road is completely full (\(\rho=1\)). The maximum flow of traffic
@@ -2746,7 +2752,7 @@ piecewise linear.
 \end{Verbatim}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{combined_files/combined_177_0.pdf}
+    \adjustimage{max size={0.99\linewidth}{0.9\paperheight}}{combined_files/combined_177_0.pdf}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -2764,6 +2770,8 @@ f(q) = \frac{q^2}{q^2 + a(1-q)^2}
 Here we make plots like the ones above, but for the Buckley-Leverett
 flux.
 
+\newpage 
+
     \begin{Verbatim}[fontsize=\small,commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}5}]:} \PY{n}{a} \PY{o}{=} \PY{l+m+mf}{0.5}
         \PY{n}{f\PYZus{}buckley\PYZus{}leverett} \PY{o}{=} \PY{k}{lambda} \PY{n}{q}\PY{p}{:} \PY{n}{q}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{/} \PY{p}{(}\PY{n}{q}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{+} \PY{n}{a}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{q}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
@@ -2774,7 +2782,7 @@ flux.
 \end{Verbatim}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{combined_files/combined_179_0.pdf}
+    \adjustimage{max size={0.99\linewidth}{0.9\paperheight}}{combined_files/combined_179_0.pdf}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -2818,7 +2826,7 @@ the Riemann solution.
 \end{Verbatim}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{combined_files/combined_182_0.pdf}
+    \adjustimage{max size={0.99\linewidth}{0.9\paperheight}}{combined_files/combined_182_0.pdf}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -2852,6 +2860,8 @@ Note what happens if we switch \texttt{q\_left} and \texttt{q\_right} in
 this problem. This now corresponds to oil on the left pushing into water
 on the right.
 
+\newpage
+
     \begin{Verbatim}[fontsize=\small,commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}7}]:} \PY{n}{q\PYZus{}left} \PY{o}{=} \PY{l+m+mf}{0.}
         \PY{n}{q\PYZus{}right} \PY{o}{=} \PY{l+m+mf}{1.}
@@ -2864,7 +2874,7 @@ on the right.
 \end{Verbatim}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{combined_files/combined_185_0.pdf}
+    \adjustimage{max size={0.99\linewidth}{0.9\paperheight}}{combined_files/combined_185_0.pdf}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -2898,7 +2908,7 @@ Riemann problem, but flipped in \texttt{x}.
 \end{Verbatim}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{combined_files/combined_188_0.pdf}
+    \adjustimage{max size={0.99\linewidth}{0.9\paperheight}}{combined_files/combined_188_0.pdf}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -2924,7 +2934,7 @@ multi-valued solution.
 \end{Verbatim}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{combined_files/combined_190_0.pdf}
+    \adjustimage{max size={0.99\linewidth}{0.99\paperheight}}{combined_files/combined_190_0.pdf}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -2942,7 +2952,7 @@ the live notebook you can see how the solution evolves with time.
 \end{Verbatim}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{combined_files/combined_192_0.pdf}
+    \adjustimage{max size={0.99\linewidth}{0.9\paperheight}}{combined_files/combined_192_0.pdf}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -2968,7 +2978,7 @@ solution corresponds to the upper convex hull of the flux function:
 \end{Verbatim}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{combined_files/combined_194_0.pdf}
+    \adjustimage{max size={0.99\linewidth}{0.9\paperheight}}{combined_files/combined_194_0.pdf}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -2995,7 +3005,7 @@ right states? Check if you are right.
 \end{Verbatim}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{combined_files/combined_196_0.pdf}
+    \adjustimage{max size={0.99\linewidth}{0.9\paperheight}}{combined_files/combined_196_0.pdf}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -3146,11 +3156,11 @@ intermediate state \(q_m\) between them. In the figure below, we
 illustrate a typical situation in which the 1-wave happens to be a
 rarefaction and the 2-wave is a shock:
 
-\begin{figure}
-\centering
+%\begin{figure}
+%\centering
 \includegraphics{./figures/shallow_water_riemann.png}
-\caption{Structure of Riemann solution}
-\end{figure}
+%\caption{Structure of Riemann solution}
+%\end{figure}
 
 In the figure we have one wave going in each direction, but since the
 wave speeds depend on \(q\) and can have either sign, it is possible to
@@ -3223,6 +3233,8 @@ natural phase plane in terms of the two conserved quantities. Of course,
 they all approach the origin as \(h \rightarrow 0\). Alternatively, we
 can plot these same curves in the \(h\)-\(u\) plane:
 
+\newpage
+
     \begin{Verbatim}[fontsize=\small,commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}5}]:} \PY{n}{interact}\PY{p}{(}\PY{n}{shallow\PYZus{}water}\PY{o}{.}\PY{n}{plot\PYZus{}hugoniot\PYZus{}loci}\PY{p}{,} \PY{n}{y\PYZus{}axis}\PY{o}{=}\PY{n}{widgets}\PY{o}{.}\PY{n}{fixed}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{u}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,}
                  \PY{n}{plot\PYZus{}1}\PY{o}{=}\PY{n}{widgets}\PY{o}{.}\PY{n}{Checkbox}\PY{p}{(}\PY{n}{description}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Plot 1\PYZhy{}loci}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{n}{value}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}\PY{p}{,}
@@ -3256,6 +3268,8 @@ depth is the same everywhere, \(h_\ell=h_r\), but the velocity
 sides. Note that in this plot the dark and light blue stripes show a
 passive tracer advected with the flow, which is shown only to help
 visualize the fluid velocity in these plots.
+
+\newpage
 
     \begin{Verbatim}[fontsize=\small,commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}6}]:} \PY{n}{shallow\PYZus{}water}\PY{o}{.}\PY{n}{plot\PYZus{}riemann\PYZus{}SW}\PY{p}{(}\PY{n}{h\PYZus{}l}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{h\PYZus{}r}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{u\PYZus{}l}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{u\PYZus{}r}\PY{o}{=}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}
@@ -4151,6 +4165,8 @@ q & = \begin{pmatrix} \rho \\ \rho u \\ E\end{pmatrix}, &
 f(q) & = \begin{pmatrix} \rho u \\ \rho u^2 + p \\ u(E+p)\end{pmatrix}.
 \label{euler_conserved}
 \end{align}\\
+\index{nonlinear conservation law}
+\index{flux function!for Euler equations}
 These are the one-dimensional Euler system. As usual, one can define the
 \(3 \times 3\) Jacobian matrix by differentiating this flux function
 with respect to the three components of \(q\).
@@ -6074,7 +6090,7 @@ example shows, the Roe solver does not always guarantee this.
 \end{Verbatim}
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}12}]:} Text(-0.8,1.5,'Unphysical states')
+{\color{outcolor}Out[{\color{outcolor}12}]:} 
 \end{Verbatim}
             
     \begin{center}
